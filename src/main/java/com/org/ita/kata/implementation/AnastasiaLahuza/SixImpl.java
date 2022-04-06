@@ -5,7 +5,16 @@ import com.org.ita.kata.Six;
 public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
-        return 0;
+        long sque = 0;
+        long n = 0;
+        while(sque < m){
+            n = n + 1;
+            sque = sque + n * n * n;
+        }
+        if(sque == m){
+            return n;
+        }
+        return -1;
     }
 
     @Override
