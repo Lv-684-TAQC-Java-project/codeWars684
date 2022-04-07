@@ -7,7 +7,20 @@ import java.math.BigInteger;
 public class FiveImpl implements Five {
     @Override
     public int artificialRain(int[] v) {
-        return 0;
+        // your code here
+        int left = 0;
+        int area = 0;
+        int record = 1;
+
+        for(int i = 1; i < v.length; i++){
+            if(v[i] < v[i - 1]) left = i;
+            else if(v[i] > v[i-1]){
+                area = area > record? area : record;
+                record = i - left;
+            }
+            record++;
+        }
+        return area > record? area : record;
     }
 
     @Override
