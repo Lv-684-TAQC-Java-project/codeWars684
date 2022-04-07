@@ -15,7 +15,11 @@ public class EightImpl implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        float kilInMiles = 1.609344f;
+        float litersInGallon = 4.54609188f;
+        float result = (mpg/litersInGallon)*kilInMiles;
+        float roundedFloat = Math.round(result * 100);
+        return roundedFloat/100;
     }
 
     @Override
