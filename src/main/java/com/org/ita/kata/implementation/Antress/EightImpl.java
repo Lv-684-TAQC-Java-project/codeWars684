@@ -35,9 +35,14 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        //your code here
+        double P = n;
+        if (n == 5 || n == 13 || n == 563) {
+            return true;
+        } else {
+            return false;
+        }
     }
-
     @Override
     public double twoDecimalPlaces(double number) {
         return 0;
