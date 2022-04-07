@@ -30,7 +30,6 @@ public class EightImpl implements Eight {
         return array;
     }
 
-
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
         return new int[0];
