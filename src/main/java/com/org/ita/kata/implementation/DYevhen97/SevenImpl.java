@@ -22,14 +22,6 @@ public class SevenImpl implements Seven {
         return String.format("%.2f", result);
     }
 
-    public static String bestSolution(int n) {
-        double sum = 0.0;
-        for (int i = 0; i < n; i++)
-            sum += 1.0 / (1 + 3 * i);
-
-        return String.format("%.2f", sum);
-    }
-
     @Override
     public int whereIsHe(int p, int bef, int aft) {
         return 0;
