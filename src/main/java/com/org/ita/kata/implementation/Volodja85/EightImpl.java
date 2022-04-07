@@ -40,28 +40,10 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+
+        return Double.parseDouble(String.format("%.2f", number));
     }
 
     @Override
-    public int[] divisibleBy(int[] numbers, int divider) {
-
-        int count = 0;
-        int count2=0;
-        for (int i = 0; i <numbers.length; i++){
-            if(numbers[i]%divider==0){
-                count2++;
-            }
-        }
-        int[] divisor = new int[ count2];
-        for (int i = 0; i <numbers.length; i++){
-            if(numbers[i]%divider==0){
-                divisor[count]=numbers[i];
-                count++;
-            }
-
-        }
-
-        return divisor;
-    }
+    public int[] divisibleBy(int[] numbers, int divider) { return new int[0]; }
 }
