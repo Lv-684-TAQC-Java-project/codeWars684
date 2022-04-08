@@ -53,7 +53,6 @@ public class SixImpl implements Six {
                 group1 = m.group(1).trim();
                 System.out.println(group1);
                 group2 = s.replace(group1, "").trim();
-
                 String[] findTeam = group1.split(" ");
                 double sc1=Double.parseDouble(findTeam[findTeam.length - 1]);
                 if(sc1%1!=0){
