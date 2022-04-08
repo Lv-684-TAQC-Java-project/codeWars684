@@ -35,14 +35,22 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        if(n>2){
+            double f = 1;
+            for (int i = 1; i <= (n - 1); i++) {
+                f = f * i;
+            }
+
+            boolean a = (f + 1) % (n * n)==0;
+
+            return a;}
+        else
+            return false;
     }
 
     @Override
     public double twoDecimalPlaces(double number) {
-        double numAfter = Math.pow(10, 2);
-        double result = Math.round(number * numAfter) / numAfter;
-        return result;
+        return 0;
     }
 
     @Override
