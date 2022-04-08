@@ -10,7 +10,7 @@ public class SixImpl implements Six {
 
     @Override
     public String balance(String book) {
-        return null;
+        return "null";
     }
 
     @Override
