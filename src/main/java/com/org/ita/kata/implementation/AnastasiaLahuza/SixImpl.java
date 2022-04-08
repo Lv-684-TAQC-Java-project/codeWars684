@@ -2,6 +2,9 @@ package com.org.ita.kata.implementation.AnastasiaLahuza;
 
 import com.org.ita.kata.Six;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
@@ -10,48 +13,54 @@ public class SixImpl implements Six {
 
     @Override
     public String balance(String book) {
-        //Zамінюємо все крім цифр, літер, крапок та будь-чого позначаючого пробіли
-        book = book.replaceAll(
-                "[^A-Za-z0-9.\\s]", " ");
-        String[] recipe = book.split("\\n");//розділяємо строку по пробілу та пишемо в массив
-        String newBook = recipe[0].trim()+"\\r\\n";
-        double round = Math.pow(10,2);
-        double sum = 0;
-        for (int i=1; i<recipe.length; i++){
-            String[] expenseList = recipe[i].replaceAll("[\\s]{2,}", " ").split(" ");
-            //System.out.println(expenseList[2]);
-            sum+=Double.parseDouble(expenseList[2]);//знаходимо сумму витрат
-            double expense =(Double.parseDouble(recipe[0])-sum);
-            //double expense = Double.parseDouble(recipe[0])-sum;
-            //System.out.println(expense);
-            recipe[i] = recipe[i] + " Balance " + String.format("%.2f", expense);
-            newBook+=recipe[i].replaceAll("[\\s]{2,}", " ")+"\\r\\n";
-            // System.out.println(recipe[i]);
-        }
-        //Загальні витрати
-        double totalExpense = Math.round(sum*round)/round;
-        //Delta витрат
-        double averageExpense = totalExpense/(recipe.length-1);
-
-        newBook = "Original Balance: " + newBook + "Total expense  " +String.format("%.2f",  totalExpense) + "\\r\\n" +"Average expense  " + String.format("%.2f", averageExpense);
-
-        return newBook;
-
-    }
+        return null;}
 
     @Override
-    public double f(double x) {
-        return x / (1.0 + Math.sqrt(1.0 + x));
+    public double f(double x) {return 0;}
+
+    public static List<Double> dataToList(String town, String data){
+        List <Double> getRainfalls = new ArrayList<>();
+        for (String line : data.split("\\n")) {
+            String[] isTown = line.split(":");
+            if (town.equals(isTown[0])) {
+                for (String weather : isTown[1].split(",")) {
+                    String[] temp = weather.split("\\s");
+                    getRainfalls.add(Double.parseDouble(temp[1]));
+                }
+            }
+        }
+        return getRainfalls;
     }
 
     @Override
     public double mean(String town, String strng) {
-        return 0;
+        double averageRainfall;
+        List<Double> getRainfalls = dataToList(town, strng);
+        if (getRainfalls.isEmpty()) {
+            getRainfalls.add(-1.0);}
+        System.out.println(getRainfalls);
+
+        double sum =0;
+        for (double a : getRainfalls) {
+            sum += a;
+        }
+        averageRainfall = sum / getRainfalls.size();
+        return averageRainfall;
     }
 
     @Override
     public double variance(String town, String strng) {
-        return 0;
+        double mean = mean(town, strng);
+        if (mean == -1.0) return -1.0;
+        double averageRainfall = mean(town, strng);
+        List<Double> getRainfalls = dataToList(town, strng);
+        double squaresum=0;
+
+        for (double a:getRainfalls){
+            squaresum+= (a-averageRainfall)*(a-averageRainfall);
+        }
+        double varianceRainfall=squaresum/getRainfalls.size();
+        return varianceRainfall;
     }
 
     @Override
