@@ -30,7 +30,8 @@ public class EightImpl implements Eight {
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        int numer = Integer.parseInt(str);
+        return numer;
     }
 
     @Override
