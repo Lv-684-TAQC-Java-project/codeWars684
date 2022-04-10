@@ -2,6 +2,8 @@ package com.org.ita.kata.implementation.OlesNikon;
 
 import com.org.ita.kata.Eight;
 
+import java.math.BigDecimal;
+
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
@@ -15,9 +17,8 @@ public class EightImpl implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        return BigDecimal.valueOf(mpg * 1.609344f / 4.54609188f).setScale(2, BigDecimal.ROUND_HALF_UP).floatValue();
     }
-
     @Override
     public int[] squareOrSquareRoot(int[] array) {
         return new int[0];
