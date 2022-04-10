@@ -2,6 +2,8 @@ package com.org.ita.kata.implementation.OlesNikon;
 
 import com.org.ita.kata.Eight;
 
+import java.util.Arrays;
+
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
@@ -45,6 +47,8 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        return Arrays.stream(numbers)
+                .filter(i -> (i % divider) == 0)
+                .toArray();
     }
 }
