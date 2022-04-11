@@ -1,4 +1,5 @@
 package com.org.ita.kata.implementation.DGalak;
+import java.util.ArrayList;
 
 import com.org.ita.kata.Eight;
 
@@ -45,6 +46,17 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+
+        ArrayList<Integer> resultArrayList = new ArrayList<Integer>();
+        for(int i =0 ; i < numbers.length; i++){
+            if(numbers[i] % divider == 0){
+                resultArrayList.add(numbers[i]);
+            }
+        }
+        int[] arrayNumbers = new int[resultArrayList.size()];
+        for(int i =0 ; i < arrayNumbers.length; i++){
+            arrayNumbers[i] = resultArrayList.get(i).intValue();
+        }
+        return arrayNumbers;
     }
 }
