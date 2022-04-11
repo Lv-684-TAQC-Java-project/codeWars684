@@ -7,7 +7,25 @@ import java.math.BigInteger;
 public class FiveImpl implements Five {
     @Override
     public int artificialRain(int[] v) {
-        return 0;
+        // your code here
+        int result = 0;
+        int maxValue = 0;
+        int count = 0;
+        for(int i = 0; i < v.length ; i++){
+            if(v[i]>maxValue){
+                maxValue=v[i];
+            }
+        }
+
+        for(int i = 0 ; i < v.length ; i++){
+            if(v[i]<maxValue){
+                result++;
+            }
+        }
+        if (v.length == 1){
+            result = 1;
+        }
+        return result;
     }
 
     @Override
