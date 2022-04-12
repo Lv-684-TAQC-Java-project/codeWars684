@@ -14,7 +14,6 @@ public class TaskRunner {
     private Six six;
     private Five five;
 
-
     public TaskRunner() {
         this.scanner = new ConsoleScanner();
         setUser(Users.ANASTASIIA);
@@ -41,5 +40,12 @@ public class TaskRunner {
         System.out.println("Enter height:");
         Double height = scanner.readDouble();
         System.out.println("Result: " + eight.getVolumeOfCuboid(length, width, height));
+    }
+
+    public void task_8_6() {
+        System.out.println(Tasks.TASK_8_6.getTaskName());
+        System.out.println("Enter number:");
+        String str = scanner.readString();
+        System.out.println("Result: " + eight.stringToNumber(str));
     }
 }
