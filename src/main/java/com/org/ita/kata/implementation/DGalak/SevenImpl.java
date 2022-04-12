@@ -10,7 +10,18 @@ public class SevenImpl implements Seven {
 
     @Override
     public String seriesSum(int n) {
-        return null;
+        double result = 1;
+        double divider = 4;
+        if (n == 0 || n == 1) {
+            return String.format("%.2f", n);
+        } else if (n != (int) n) {
+            return "0.00";
+        }
+        for (int i = 2; i <= n; i++) {
+            result = result + 1 / divider;
+            divider += 3;
+        }
+        return String.format("%.2f", result);
     }
 
     @Override
