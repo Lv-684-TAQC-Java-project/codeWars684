@@ -10,7 +10,7 @@ public class EightImpl implements Eight {
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return 0;
+        return length*width*height;
     }
 
     @Override
@@ -50,11 +50,28 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        double numAfter = Math.pow(10, 2);
+        double result = Math.round(number * numAfter) / numAfter;
+        return result;
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        int count=0;
+        for(int i: numbers){
+            if(i%divider==0){
+                count++;
+            }
+        }
+        int[] array = new int[count];
+        int i = 0;
+        for (int a: numbers)
+        {
+            if(a%divider==0){
+                array[i] = a;
+                i++;
+            }
+        }
+        return array;
     }
 }

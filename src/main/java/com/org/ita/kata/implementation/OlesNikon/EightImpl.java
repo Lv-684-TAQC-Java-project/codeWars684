@@ -1,6 +1,8 @@
 package com.org.ita.kata.implementation.OlesNikon;
 
 import com.org.ita.kata.Eight;
+import java.math.BigDecimal;
+import java.util.Arrays;
 
 public class EightImpl implements Eight {
     @Override
@@ -10,17 +12,21 @@ public class EightImpl implements Eight {
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return 0;
+        return length * width * height;
     }
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        return BigDecimal.valueOf(mpg * 1.609344f / 4.54609188f).setScale(2, BigDecimal.ROUND_HALF_UP).floatValue();
     }
-
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        for (int i = 0; i < array.length; i++) {
+            if (Math.sqrt(array[i]) % 1 == 0) {
+                array[i] = (int) Math.sqrt(array[i]);
+            } else {array[i] = array [i] * array [i];}
+        }
+        return array;
     }
 
     @Override
@@ -30,7 +36,8 @@ public class EightImpl implements Eight {
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        int numer = Integer.parseInt(str);
+        return numer;
     }
 
     @Override
@@ -40,11 +47,13 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        return (double) Math.round(number * 100.0) / 100.0;
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        return Arrays.stream(numbers)
+                .filter(i -> (i % divider) == 0)
+                .toArray();
     }
 }
