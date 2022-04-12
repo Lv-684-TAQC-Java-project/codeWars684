@@ -17,7 +17,17 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
-        return 0;
+        int trailingZeroNumber = 0;
+        double divisionResult = Math.floor(n / 5);
+        while (divisionResult > 0) {
+            if (Double.toString(divisionResult).length() >= 2) {
+                trailingZeroNumber += divisionResult;
+                divisionResult = Math.floor(divisionResult / 5);
+            } else {
+                trailingZeroNumber += Math.floor(n / 5);
+            }
+        }
+        return trailingZeroNumber;
     }
 
     @Override
