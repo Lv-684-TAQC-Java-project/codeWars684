@@ -9,9 +9,11 @@ public class EightImpl implements Eight {
     }
 
     @Override
-    public double getVolumeOfCuboid(double length, double width, double height) {
-        return 0;
-    }
+    public static double getVolumeOfCuboid(final double length, final double width, final double height) {
+    double volume =0;
+    volume = length*width*height;
+    return volume;
+  }
 
     @Override
     public float mpgToKPM(float mpg) {

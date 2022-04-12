@@ -9,9 +9,8 @@ public class EightTest {
     }
 
     @Test
-    public void testGetVolumeOfCuboid() {
+    public void getVolumeOfCuboid() {
     }
-
     @Test
     public void testMpgToKPM() {
     }
