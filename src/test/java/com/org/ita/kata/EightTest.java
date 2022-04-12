@@ -9,11 +9,8 @@ public class EightTest {
     }
 
     @Test
-   public static double getVolumeOfCuboid(final double length, final double width, final double height) {
-    double volume =0;
-    volume = length*width*height;
-    return volume;
-  }
+    public void getVolumeOfCuboid() {
+    }
     @Test
     public void testMpgToKPM() {
     }
