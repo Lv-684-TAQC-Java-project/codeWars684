@@ -40,7 +40,9 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        double numAfter = Math.pow(10, 2);
+        double result = Math.round(number * numAfter) / numAfter;
+        return result;
     }
 
     @Override
