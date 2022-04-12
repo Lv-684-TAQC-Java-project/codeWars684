@@ -1,7 +1,8 @@
 package com.org.ita.kata.implementation.DGalak;
-import java.util.ArrayList;
 
 import com.org.ita.kata.Eight;
+
+import java.util.ArrayList;
 
 public class EightImpl implements Eight {
     @Override
@@ -53,6 +54,7 @@ public class EightImpl implements Eight {
         }
         return arrayCount;
     }
+
     @Override
     public int stringToNumber(String str) {
         return Integer.parseInt(str.replaceAll("[^\\d-]", ""));
@@ -60,29 +62,26 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        if (n == 5 || n == 13 || n == 563){
-            return true;
-        }
-        return false;
+        return n == 5 || n == 13 || n == 563;
     }
 
     @Override
     public double twoDecimalPlaces(double number) {
 
-        return  Math.round(number * 100.0)/100.0;
+        return Math.round(number * 100.0) / 100.0;
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
 
         ArrayList<Integer> resultArrayList = new ArrayList<Integer>();
-        for(int i =0 ; i < numbers.length; i++){
-            if(numbers[i] % divider == 0){
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] % divider == 0) {
                 resultArrayList.add(numbers[i]);
             }
         }
         int[] arrayNumbers = new int[resultArrayList.size()];
-        for(int i =0 ; i < arrayNumbers.length; i++){
+        for (int i = 0; i < arrayNumbers.length; i++) {
             arrayNumbers[i] = resultArrayList.get(i).intValue();
         }
         return arrayNumbers;

@@ -11,11 +11,11 @@ public class SixImpl implements Six {
 
         long sum = 0;
         long count = 0;
-        while(sum < m){
+        while (sum < m) {
             count++;
-            sum = sum+ (long)(Math.pow(count,3));
+            sum = sum + (long) (Math.pow(count, 3));
         }
-        if(sum == m){
+        if (sum == m) {
             return count;
         }
         return -1;
@@ -25,67 +25,68 @@ public class SixImpl implements Six {
     public String balance(String book) {
 
         double totalExpense = 0.0;
-        double averageExpense=0.0;
-        double sum=0D;
-        double round=Math.pow(10,2);
-        double expence=0D;
-        String[] expenseList=null;
+        double averageExpense = 0.0;
+        double sum = 0D;
+        double round = Math.pow(10, 2);
+        double expence = 0D;
+        String[] expenseList = null;
 
         String[] recipe = book.replaceAll("[^.a-zA-Z0-9\n ]", "").split("\n");
-        String newBook= recipe[0].trim()+"\\r\\n";
+        String newBook = recipe[0].trim() + "\\r\\n";
 
-        for (int i=1; i<recipe.length; i++) {
+        for (int i = 1; i < recipe.length; i++) {
             expenseList = recipe[i].replaceAll("[\\s]{2,}", " ").split(" ");
             sum += Double.parseDouble(expenseList[2]);
             expence = (Double.parseDouble(recipe[0]) - sum);
-            recipe[i] = recipe[i] + " Balance " + String.format("%.2f", expence).replace(",",".");
+            recipe[i] = recipe[i] + " Balance " + String.format("%.2f", expence).replace(",", ".");
             newBook += recipe[i].replaceAll("[\\s]{2,}", " ") + "\\r\\n";
-            newBook.replaceAll(",",".");
-            totalExpense =(double) Math.round(sum * round) / round;
+            newBook.replaceAll(",", ".");
+            totalExpense = (double) Math.round(sum * round) / round;
             averageExpense = totalExpense / (recipe.length - 1);
         }
-        newBook = "Original Balance: " + newBook + "Total expense  " + String.format("%.2f", totalExpense).replace(",",".") + "\\r\\n" + "Average expense  " + String.format("%.2f", averageExpense).replace(",",".");
+        newBook = "Original Balance: " + newBook + "Total expense  " + String.format("%.2f", totalExpense).replace(",", ".") + "\\r\\n" + "Average expense  " + String.format("%.2f", averageExpense).replace(",", ".");
         return newBook;
     }
 
     @Override
     public double f(double x) {
 
-        return x/(Math.sqrt(1+x) + 1);
+        return x / (Math.sqrt(1 + x) + 1);
     }
 
     @Override
     public double mean(String town, String strng) {
 
-        try{
+        try {
             String[] search = strng.split("\n");
             String strTown = " ";
-            double sum=0;
-            for(String searching : search){
-                if (searching.contains(town + ":")){
+            double sum = 0;
+            for (String searching : search) {
+                if (searching.contains(town + ":")) {
                     strTown = searching;
                 }
-                if(town.equals("")) {
+                if (town.equals("")) {
                     return -1;
 
                 }
             }
-            if (strTown.isEmpty()||strTown.equals("")){
-                return -1;}
+            if (strTown.isEmpty() || strTown.equals("")) {
+                return -1;
+            }
             strTown = strTown.replaceAll("[^0-9.,]", "");
 
 
             String[] cityData = strTown.split(",");
-            for (int i=0; i<cityData.length; i++) {
+            for (int i = 0; i < cityData.length; i++) {
                 sum += Double.valueOf(String.valueOf(cityData[i]));
             }
             return sum / cityData.length;
-        }
-        catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             e.fillInStackTrace();
             e.getMessage();
             e.printStackTrace();
-        }return -1;
+        }
+        return -1;
     }
 
     @Override
@@ -140,7 +141,7 @@ public class SixImpl implements Six {
         String B = null;
         int iLenght = lstOf1stLetter.length;
         int[] array1 = new int[iLenght];
-        if(lstOfArt.length==0||lstOf1stLetter.length==0)return "";
+        if (lstOfArt.length == 0 || lstOf1stLetter.length == 0) return "";
         for (int i = 0; i < lstOfArt.length; i++) {
             A = lstOfArt[i];
             String[] recipe = A.split(" ");

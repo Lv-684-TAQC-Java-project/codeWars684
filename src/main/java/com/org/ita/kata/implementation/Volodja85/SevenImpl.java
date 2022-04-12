@@ -11,10 +11,10 @@ public class SevenImpl implements Seven {
             count += arr[i];
         }
         sum = (navg * (arr.length + 1)) - count;
-        if(sum <= 0 ){
+        if (sum <= 0) {
             throw new IllegalArgumentException();
         }
-        return (long)(Math.ceil(sum));
+        return (long) (Math.ceil(sum));
     }
 
     @Override
@@ -22,12 +22,12 @@ public class SevenImpl implements Seven {
 
         int count = 1;
         double sum = 1;
-        if (n == 0){
+        if (n == 0) {
             return "0.00";
         }
-        for(int i = 1; i < n; i++){
+        for (int i = 1; i < n; i++) {
             count += 3;
-            sum += (double)1/count;
+            sum += (double) 1 / count;
         }
         String result = String.format("%.2f", sum);
         return result;

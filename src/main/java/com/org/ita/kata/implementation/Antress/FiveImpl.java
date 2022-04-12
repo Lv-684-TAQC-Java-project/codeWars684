@@ -4,8 +4,8 @@ import com.org.ita.kata.Five;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -16,18 +16,18 @@ public class FiveImpl implements Five {
         int result = 0;
         int maxValue = 0;
         int count = 0;
-        for(int i = 0; i < v.length ; i++){
-            if(v[i]>maxValue){
-                maxValue=v[i];
+        for (int i = 0; i < v.length; i++) {
+            if (v[i] > maxValue) {
+                maxValue = v[i];
             }
         }
 
-        for(int i = 0 ; i < v.length ; i++){
-            if(v[i]<maxValue){
+        for (int i = 0; i < v.length; i++) {
+            if (v[i] < maxValue) {
                 result++;
             }
         }
-        if (v.length == 1){
+        if (v.length == 1) {
             result = 1;
         }
         return result;
@@ -53,12 +53,12 @@ public class FiveImpl implements Five {
         arr = list.toArray(arr);
 
         for (int i = 0; i < list.size() - 1; i++) {
-            if (arr[i+1]-arr[i]==g){
+            if (arr[i + 1] - arr[i] == g) {
                 result = new long[2];
                 result[0] = arr[i];
-                result[1] = arr[i+1];
+                result[1] = arr[i + 1];
                 break;
-            }else{
+            } else {
                 result = null;
             }
         }
@@ -98,7 +98,7 @@ public class FiveImpl implements Five {
 
             }
         }
-        for (BigInteger sumList : setForSum){
+        for (BigInteger sumList : setForSum) {
             sum = sum.add(sumList);
         }
 
@@ -108,8 +108,8 @@ public class FiveImpl implements Five {
 
     @Override
     public double solveSum(double m) {
-        double x = Math.sqrt(4*m+1);
-        return (2*m+1-x)/(2*m);
+        double x = Math.sqrt(4 * m + 1);
+        return (2 * m + 1 - x) / (2 * m);
     }
 
     @Override

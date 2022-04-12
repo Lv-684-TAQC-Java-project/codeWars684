@@ -7,11 +7,11 @@ public class SixImpl implements Six {
     public long findNb(long m) {
         long mm = 0;
         long n = 0;
-        while(mm < m){
+        while (mm < m) {
             n = n + 1;
             mm = mm + n * n * n;
         }
-        if(mm == m){
+        if (mm == m) {
             return n;
         }
         return -1;

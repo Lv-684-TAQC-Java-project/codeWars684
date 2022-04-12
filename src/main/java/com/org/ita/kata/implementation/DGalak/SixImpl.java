@@ -1,17 +1,36 @@
 package com.org.ita.kata.implementation.DGalak;
-import java.util.*;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
-import java.util.stream.Stream;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import com.org.ita.kata.Six;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Stream;
+
 public class SixImpl implements Six {
+    public static List<Double> getValues(String city, String data) {
+        System.out.println("counn data  " + data);
+        System.out.println("City   " + city);
+        List<Double> arrayData = new ArrayList<Double>();
+        String[] dataByCity = data.split("\\n");
+        for (int i = 0; i < dataByCity.length; i++) {
+            if (dataByCity[i].split(":")[0].equals(city)) {
+                String regex = "([0-9]+[.][0-9]+)";
+                Pattern pattern = Pattern.compile(regex);
+                Matcher matcher = pattern.matcher(dataByCity[i]);
+                while (matcher.find()) {
+                    arrayData.add(Double.valueOf(matcher.group()));
+                }
+            }
+        }
+        if (arrayData.isEmpty()) {
+            arrayData.add(-1.0);
+        }
+        return arrayData;
+    }
+
     @Override
     public long findNb(long m) {
         long counter = 0L;
@@ -55,19 +74,19 @@ public class SixImpl implements Six {
         double firstBalanceValue = Double.parseDouble(productExpensesArray.get(0)) - Double.parseDouble(productExpensesArray.get(1));
         double balanceCount = firstBalanceValue;
         List<String> balanceArray = new ArrayList<String>();
-        balanceArray.add(String.format("%.2f" , firstBalanceValue));
+        balanceArray.add(String.format("%.2f", firstBalanceValue));
         for (int i = 2; i < productExpensesArray.size(); i++) {
             balanceCount = balanceCount - Double.parseDouble(productExpensesArray.get(i));
             balanceArray.add(String.format("%.2f", balanceCount));
         }
         ArrayList<String> arraySolution = new ArrayList<String>();
         arraySolution.add("Original Balance: " + productExpensesArray.get(0));
-        for(int i = 0; i < balanceArray.size(); i++ ){
-            arraySolution.add(receipt[i+1] + " Balance " + balanceArray.get(i));
+        for (int i = 0; i < balanceArray.size(); i++) {
+            arraySolution.add(receipt[i + 1] + " Balance " + balanceArray.get(i));
         }
         arraySolution.add("Total expense  " + String.format("%.2f", totalExpense));
         arraySolution.add("Average expense  " + String.format("%.2f", averageExpense));
-        return String.join("\\r\\n" ,arraySolution);
+        return String.join("\\r\\n", arraySolution);
     }
 
     @Override
@@ -75,26 +94,6 @@ public class SixImpl implements Six {
         return 0;
     }
 
-    public static List<Double> getValues(String city, String data) {
-        System.out.println("counn data  " + data);
-        System.out.println("City   " + city);
-        List<Double> arrayData = new ArrayList<Double>();
-        String[] dataByCity = data.split("\\n");
-        for (int i = 0; i < dataByCity.length; i++) {
-            if (dataByCity[i].split(":")[0].equals(city)) {
-                String regex = "([0-9]+[.][0-9]+)";
-                Pattern pattern = Pattern.compile(regex);
-                Matcher matcher = pattern.matcher(dataByCity[i]);
-                while (matcher.find()) {
-                    arrayData.add(Double.valueOf(matcher.group()));
-                }
-            }
-        }
-        if (arrayData.isEmpty()) {
-            arrayData.add(-1.0);
-        }
-        return arrayData;
-    }
     @Override
     public double mean(String town, String strng) {
         List<Double> arrayRainFall = new ArrayList<Double>();
@@ -108,6 +107,7 @@ public class SixImpl implements Six {
         }
         return (counter / arrayRainFall.size());
     }
+
     @Override
     public double variance(String town, String strng) {
         List<Double> arrayRainFallVariance = new ArrayList<Double>();

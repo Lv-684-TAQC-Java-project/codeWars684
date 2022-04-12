@@ -9,11 +9,11 @@ public class SixImpl implements Six {
         long result = 0L;
         long total = 0L;
         long n = 0;
-        while (total < m){
-            n = n +1;
-            total += Math.pow(n,3);
+        while (total < m) {
+            n = n + 1;
+            total += Math.pow(n, 3);
         }
-        result = (total == m )?n:-1L;
+        result = (total == m) ? n : -1L;
         return result;
     }
 
@@ -23,11 +23,11 @@ public class SixImpl implements Six {
         String[] arr = t.split("[\\n]+");
         Double amount = Double.parseDouble(arr[0]);
         double total = 0;
-        int count =0;
+        int count = 0;
         StringBuilder result = new StringBuilder();
         result.append("Original Balance: " + arr[0]);
         for (int i = 1; i < arr.length; i++) {
-            count ++;
+            count++;
             String[] line = arr[i].split("[ ]+");
             amount -= Double.parseDouble(line[2]);
             total += Double.parseDouble(line[2]);
@@ -42,7 +42,7 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
-        return x / (1 + Math.sqrt(1+x));
+        return x / (1 + Math.sqrt(1 + x));
     }
 
     @Override
@@ -54,6 +54,7 @@ public class SixImpl implements Six {
     public double variance(String town, String strng) {
         return 0.1;
     }
+
     @Override
     public String nbaCup(String resultSheet, String toFind) {
         boolean flag = true;
@@ -122,28 +123,28 @@ public class SixImpl implements Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        String letterMemory ;
+        String letterMemory;
         String artMemory;
         String quantity;
         int sum = 0;
-        int [] sumOfCategory = new int[lstOf1stLetter.length];
+        int[] sumOfCategory = new int[lstOf1stLetter.length];
 
-        for (int i = 0 ; i < lstOf1stLetter.length;i++){
-            letterMemory =  lstOf1stLetter[i];
-            for (int j = 0 ; j < lstOfArt.length;j++){
+        for (int i = 0; i < lstOf1stLetter.length; i++) {
+            letterMemory = lstOf1stLetter[i];
+            for (int j = 0; j < lstOfArt.length; j++) {
                 artMemory = Character.toString(lstOfArt[j].charAt(0));
-                if(letterMemory.equals(artMemory)){
-                    quantity = lstOfArt[j].replaceAll("[^0-9]","");
+                if (letterMemory.equals(artMemory)) {
+                    quantity = lstOfArt[j].replaceAll("[^0-9]", "");
                     sumOfCategory[i] += Integer.parseInt(quantity);
                 }
             }
         }
-        String result  = "";
-        for (int i = 0 ; i < lstOf1stLetter.length; i++) {
-            if (lstOfArt.length == 0 || lstOf1stLetter.length == 0 ){
-            }else if (i<lstOf1stLetter.length-1){
+        String result = "";
+        for (int i = 0; i < lstOf1stLetter.length; i++) {
+            if (lstOfArt.length == 0 || lstOf1stLetter.length == 0) {
+            } else if (i < lstOf1stLetter.length - 1) {
                 result = result + "(" + lstOf1stLetter[i] + " : " + sumOfCategory[i] + ")" + " - ";
-            }else{
+            } else {
                 result = result + "(" + lstOf1stLetter[i] + " : " + sumOfCategory[i] + ")";
             }
         }

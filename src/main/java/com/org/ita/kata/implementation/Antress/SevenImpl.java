@@ -9,12 +9,12 @@ public class SevenImpl implements Seven {
         double sum = 0;
         long result = 0;
 
-        for (int i = 0; i < arr.length; i++){
+        for (int i = 0; i < arr.length; i++) {
             sum += arr[i];
         }
 
-        result = (long) (Math.ceil((navg * (arr.length + 1))-sum));
-        if (result <= 0){
+        result = (long) (Math.ceil((navg * (arr.length + 1)) - sum));
+        if (result <= 0) {
             throw new IllegalArgumentException();
         }
         return result;
@@ -29,7 +29,7 @@ public class SevenImpl implements Seven {
         String result = "0.00";
 
         if (n > 0) {
-            for (int i = 0 , j = 1; i < n; i++) {
+            for (int i = 0, j = 1; i < n; i++) {
                 if (i == 0) {
                     sum = 1;
                 } else if (i == 1) {
@@ -40,7 +40,7 @@ public class SevenImpl implements Seven {
                     j++;
                 }
             }
-            result = String.format("%.2f",sum);
+            result = String.format("%.2f", sum);
         }
         return result;
     }

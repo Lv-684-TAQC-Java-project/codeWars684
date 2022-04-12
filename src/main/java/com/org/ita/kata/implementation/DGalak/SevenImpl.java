@@ -23,7 +23,7 @@ public class SevenImpl implements Seven {
         double divider = 4;
         if (n == 0 || n == 1) {
             return String.format("%.2f", n);
-        } else if (n != (int) n) {
+        } else if (n != n) {
             return "0.00";
         }
         for (int i = 2; i <= n; i++) {
