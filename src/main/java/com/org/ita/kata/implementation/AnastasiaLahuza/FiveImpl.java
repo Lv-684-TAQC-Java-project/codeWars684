@@ -22,14 +22,14 @@ public class FiveImpl implements Five {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        BigInteger x = BigInteger.ONE;
-        BigInteger y = BigInteger.ZERO;
+        BigInteger nextNum = BigInteger.ONE;
+        BigInteger previousNum = BigInteger.ZERO;
         BigInteger square = BigInteger.ZERO;
-        for(int i = 0; i <= n.intValue(); i++)
-        {
-            x = x.add(y);
-            y = x.subtract(y);
-            square= square.add(BigInteger.valueOf (4).multiply(y));
+
+        for (BigInteger i = BigInteger.ZERO; i.compareTo(n) <= 0; i = i.add(BigInteger.ONE)) {
+            nextNum = nextNum.add(previousNum);
+            previousNum = nextNum.subtract(previousNum);
+            square = square.add(BigInteger.valueOf(4).multiply(previousNum));
         }
 
         return square;
