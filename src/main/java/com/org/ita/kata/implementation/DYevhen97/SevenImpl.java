@@ -15,6 +15,8 @@ public class SevenImpl implements Seven {
 
     @Override
     public int whereIsHe(int p, int bef, int aft) {
-        return 0;
+        int lastValidBef = p - bef;
+        int lastValidAft = aft + 1;
+        return Math.min(lastValidBef, lastValidAft);
     }
 }
