@@ -35,7 +35,7 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+            return false;
     }
 
     @Override
