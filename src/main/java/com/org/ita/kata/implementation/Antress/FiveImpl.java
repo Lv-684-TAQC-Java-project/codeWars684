@@ -13,24 +13,19 @@ public class FiveImpl implements Five {
     @Override
     public int artificialRain(int[] v) {
         // your code here
-        int result = 0;
-        int maxValue = 0;
-        int count = 0;
-        for (int i = 0; i < v.length; i++) {
-            if (v[i] > maxValue) {
-                maxValue = v[i];
-            }
-        }
+        int left = 0;
+        int area = 0;
+        int record = 1;
 
-        for (int i = 0; i < v.length; i++) {
-            if (v[i] < maxValue) {
-                result++;
+        for(int i = 1; i < v.length; i++){
+            if(v[i] < v[i - 1]) left = i;
+            else if(v[i] > v[i-1]){
+                area = area > record? area : record;
+                record = i - left;
             }
+            record++;
         }
-        if (v.length == 1) {
-            result = 1;
-        }
-        return result;
+        return area > record? area : record;
     }
 
     @Override
