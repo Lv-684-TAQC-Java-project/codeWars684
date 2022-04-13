@@ -49,14 +49,14 @@ public class TaskRunner {
         System.out.println("Result: " + eight.getVolumeOfCuboid(length, width, height));
     }
 
-    public  void task_6_1(){
+    public void task_6_1() {
         System.out.println(Tasks.TASK_6_1.getTaskName());
         System.out.println("Enter integer value");
         Long value = scanner.readLong();
         System.out.println("Result: " + six.findNb(value));
     }
 
-    public  void task_6_2(){
+    public void task_6_2() {
         System.out.println(Tasks.TASK_6_2.getTaskName());
         System.out.println("Enter text");
         String text = scanner.readString();

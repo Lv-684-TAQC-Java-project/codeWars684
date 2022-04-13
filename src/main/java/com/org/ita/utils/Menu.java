@@ -21,13 +21,14 @@ public class Menu {
 
                     taskRunner.setUser(users);
                 case 2:
+                    SetTask s1 = new SetTask();
                     System.out.println("List of tasks:");
                     for (Tasks task : Tasks.values()) {
                         System.out.println(String.format("%s - %s", task.getId(), task.getTaskName()));
                     }
                     System.out.println();
                     int taskId = scanner.readInt();
-                    Tasks task = Tasks.getTaskById(taskId);
+                    s1.setTask(taskId);
                     
             }
 
