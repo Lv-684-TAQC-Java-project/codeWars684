@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
 public class SixImpl implements Six {
     public static List<Double> dataToList(String town, String data) {
         List<Double> getRainfalls = new ArrayList<>();
@@ -39,12 +38,32 @@ public class SixImpl implements Six {
 
     @Override
     public String balance(String book) {
-        return null;
+        book = book.replaceAll(
+                "[^A-Za-z0-9.\\s]", " ");
+        String[] recipe = book.split("\\n");
+        String newBook = recipe[0].trim()+"\\r\\n";
+        double round = Math.pow(10,2);
+        double sum = 0;
+        for (int i=1; i<recipe.length; i++){
+            String[] expenseList = recipe[i].replaceAll("[\\s]{2,}", " ").split(" ");
+            sum+=Double.parseDouble(expenseList[2]);
+            double expense =(Double.parseDouble(recipe[0])-sum);
+            recipe[i] = recipe[i] + " Balance " + String.format("%.2f", expense);
+            newBook+=recipe[i].replaceAll("[\\s]{2,}", " ")+"\\r\\n";
+
+        }
+        double totalExpense = Math.round(sum*round)/round;
+        double averageExpense = totalExpense/(recipe.length-1);
+
+        newBook = "Original Balance: " + newBook + "Total expense  " +String.format("%.2f",  totalExpense) + "\\r\\n" +"Average expense  " + String.format("%.2f", averageExpense);
+
+        return newBook;
+
     }
 
     @Override
     public double f(double x) {
-        return 0;
+       return x / (1.0 + Math.sqrt(1.0 + x));
     }
 
     @Override

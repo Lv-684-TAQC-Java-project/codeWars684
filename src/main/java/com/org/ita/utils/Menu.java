@@ -16,12 +16,11 @@ public class Menu {
                     for (Users user : Users.values()) {
                         System.out.println(String.format("%s - %s", user.getId(), user.getFullName()));
                     }
-                    System.out.println();
+                    //  System.out.println();
                     int user_id = scanner.readInt();
                     Users users = Users.getById(user_id);
                     taskRunner.setUser(users);
             }
-
 
         } while (choice != 0);
     }
