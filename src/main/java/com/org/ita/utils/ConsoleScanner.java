@@ -122,5 +122,4 @@ public class ConsoleScanner {
 
         return strings.toArray(new String[0]);
     }
-
 }
