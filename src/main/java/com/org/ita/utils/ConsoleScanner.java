@@ -22,27 +22,70 @@ public class ConsoleScanner {
     }
 
     public Long readLong() {
-        return null;
+        while(true){
+            if(scanner.hasNextLong()){
+                return scanner.nextLong();
+            }
+            else {
+                System.out.println("Value is not 'Long', please try again.");
+                scanner.next();
+            }
+        }
     }
 
     public Float readFloat() {
-        return null;
+        while (true) {
+            if (scanner.hasNextFloat()) {
+                return scanner.nextFloat();
+            } else {
+                System.out.println("Value is not 'Float', please try again.");
+                scanner.next();
+            }
+        }
     }
 
     public Double readDouble() {
-        return null;
+        while (true) {
+            if (scanner.hasNextDouble()) {
+                return scanner.nextDouble();
+            } else {
+                System.out.println("Value is not 'Double', please try again.");
+                scanner.next();
+            }
+        }
     }
 
     public String readString() {
-        return null;
+        while (true) {
+            if (scanner.hasNextLine()) {
+                return scanner.nextLine();
+            } else {
+                System.out.println("Value is not 'String', please try again.");
+                scanner.next();
+            }
+        }
     }
 
     public BigInteger readBigInteger() {
-        return null;
+        while (true) {
+            if (scanner.hasNextBigInteger()) {
+                return scanner.nextBigInteger();
+            } else {
+                System.out.println("Value is not 'BigInteger', please try again.");
+                scanner.next();
+            }
+        }
     }
 
     public BigDecimal readBigDecimal() {
-        return null;
+        while (true) {
+            if (scanner.hasNextBigDecimal()) {
+                return scanner.nextBigDecimal();
+            } else {
+                System.out.println("Value is not 'BigDecimal', please try again.");
+                scanner.next();
+            }
+        }
     }
 
     public Double[] readDoubleArray() {
