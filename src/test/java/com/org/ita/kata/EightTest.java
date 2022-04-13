@@ -2,8 +2,6 @@ package com.org.ita.kata;
 
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
-
 public class EightTest {
 
     @Test
@@ -11,9 +9,8 @@ public class EightTest {
     }
 
     @Test
-    public void testGetVolumeOfCuboid() {
+    public void getVolumeOfCuboid() {
     }
-
     @Test
     public void testMpgToKPM() {
     }
