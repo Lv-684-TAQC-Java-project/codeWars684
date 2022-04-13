@@ -26,8 +26,56 @@ public class FiveImpl implements Five {
 
     @Override
     public int artificialRain(int[] v) {
-        return 0;
+        int[] flowRight = FiveImpl.computeRightFlow(v);
+        int[] flowLeft = FiveImpl.computeLeftFlow(v);
+
+        int maxWateredPlains = 0;
+
+        for (int i = 0; i < flowLeft.length; i++) {
+            maxWateredPlains = Math.max(flowLeft[i] + flowRight[i] + 1, maxWateredPlains);
+        }
+        return maxWateredPlains;
     }
+
+    static boolean canFlowLeft(int[] numbers, int i) {
+        if (i == 0)
+            return false;
+        return numbers[i - 1] <= numbers[i];
+    }
+
+    static boolean canFlowRight(int[] numbers, int i) {
+        if (numbers.length - 1 == i)
+            return false;
+        return numbers[i + 1] <= numbers[i];
+    }
+
+
+    static int[] computeLeftFlow(int[] numbers) {
+        int[] result = new int[numbers.length];
+
+        for (int i = 0; i < numbers.length; i++) {
+            if (canFlowLeft(numbers, i)) {
+                result[i] = result[i - 1] + 1;
+            } else {
+                result[i] = 0;
+            }
+        }
+        return result;
+    }
+
+    static int[] computeRightFlow(int[] numbers) {
+        int[] result = new int[numbers.length];
+
+        for (int i = numbers.length - 1; i >= 0; i--) {
+            if (canFlowRight(numbers, i)) {
+                result[i] = result[i + 1] + 1;
+            } else {
+                result[i] = 0;
+            }
+        }
+        return result;
+    }
+
 
     @Override
     public long[] gap(int g, long m, long n) {
@@ -49,12 +97,26 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
-        return 0;
+        int count=0;
+        for (int i = 5; n / i >= 1; i *= 5) {
+            count += n / i;
+        }
+        return count;
     }
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+        BigInteger nextNum = BigInteger.ONE;
+        BigInteger previousNum = BigInteger.ZERO;
+        BigInteger square = BigInteger.ZERO;
+
+        for (BigInteger i = BigInteger.ZERO; i.compareTo(n) <= 0; i = i.add(BigInteger.ONE)) {
+            nextNum = nextNum.add(previousNum);
+            previousNum = nextNum.subtract(previousNum);
+            square = square.add(BigInteger.valueOf(4).multiply(previousNum));
+        }
+
+        return square;
     }
 
     @Override
