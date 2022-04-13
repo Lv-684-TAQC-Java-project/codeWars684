@@ -111,22 +111,6 @@ public class ConsoleScanner {
         return array;
     }
 
-    public String[] onlyForStockSummaryMethod() {
-        String[] array = new String[readInt()];
-        int i = 0;
-
-        while (i < array.length) {
-            String line = scanner.next();
-            if (line.matches("-?\\d+(\\.\\d+)?")) {
-                i++;
-            } else {
-                System.out.println("Incorrect input! Please enter string array.");
-            }
-        }
-
-        return array;
-    }
-
     public String[] readStringArray() {
         List<String> strings = new LinkedList<String>();
 
