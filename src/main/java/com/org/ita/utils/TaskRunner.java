@@ -42,4 +42,21 @@ public class TaskRunner {
         Double height = scanner.readDouble();
         System.out.println("Result: " + eight.getVolumeOfCuboid(length, width, height));
     }
+
+    public void task_6_5() {
+        System.out.println(Tasks.TASK_6_5.getTaskName());
+        System.out.println("Enter Team:");
+        String toFind = scanner.readString();
+        System.out.println("Enter Sheet:");
+        String resultSheet = scanner.readString();
+        System.out.println("Result: " + six.nbaCup(resultSheet , toFind));
+    }
+    public void task_6_6() {
+        System.out.println(Tasks.TASK_6_6.getTaskName());
+        System.out.println("Enter List of Articles:");
+        String[] lstOfArt = scanner.readString().split(",");
+        System.out.println("Enter List of Letters:");
+        String[] lstOf1stLetter = scanner.readString().split(",");
+        System.out.println("Result: " + six.stockSummary(lstOfArt , lstOf1stLetter));
+    }
 }
