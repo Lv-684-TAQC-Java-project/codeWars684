@@ -2,6 +2,8 @@ package com.org.ita.utils;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.LinkedList;
+import java.util.List;
 
 public class ConsoleScanner {
     private final java.util.Scanner scanner;
@@ -33,17 +35,31 @@ public class ConsoleScanner {
     }
 
     public Float readFloat() {
-        return null;
+        while (true) {
+            if (scanner.hasNextFloat()) {
+                return scanner.nextFloat();
+            } else {
+                System.out.println("Value is not 'Float', please try again.");
+                scanner.next();
+            }
+        }
     }
 
     public Double readDouble() {
-        return null;
+        while (true) {
+            if (scanner.hasNextDouble()) {
+                return scanner.nextDouble();
+            } else {
+                System.out.println("Value is not 'Double', please try again.");
+                scanner.next();
+            }
+        }
     }
 
     public String readString() {
         while (true) {
             if (scanner.hasNextLine()) {
-                return scanner.next();
+                return scanner.nextLine();
             } else {
                 System.out.println("Value is not 'String', please try again.");
                 scanner.next();
@@ -52,27 +68,75 @@ public class ConsoleScanner {
     }
 
     public BigInteger readBigInteger() {
-        return null;
+        while (true) {
+            if (scanner.hasNextBigInteger()) {
+                return scanner.nextBigInteger();
+            } else {
+                System.out.println("Value is not 'BigInteger', please try again.");
+                scanner.next();
+            }
+        }
     }
 
     public BigDecimal readBigDecimal() {
-        return null;
+        while (true) {
+            if (scanner.hasNextBigDecimal()) {
+                return scanner.nextBigDecimal();
+            } else {
+                System.out.println("Value is not 'BigDecimal', please try again.");
+                scanner.next();
+            }
+        }
     }
 
-    public Double[] readDoubleArray() {
-        return null;
+    public double[] readDoubleArray() {
+        System.out.print("Length of the array:");
+        double[] array = new double[readInt()];
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = readDouble();
+        }
+
+        return array;
     }
 
-    public Integer[] readIntegerArray() {
-        return null;
+    public int[] readIntArray() {
+        System.out.print("Length of the array:");
+        int[] array = new int[readInt()];
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = readInt();
+        }
+
+        return array;
+    }
+
+    public String[] onlyForStockSummaryMethod() {
+        String[] array = new String[readInt()];
+        int i = 0;
+
+        while (i < array.length) {
+            String line = scanner.next();
+            if (line.matches("-?\\d+(\\.\\d+)?")) {
+                i++;
+            } else {
+                System.out.println("Incorrect input! Please enter string array.");
+            }
+        }
+
+        return array;
     }
 
     public String[] readStringArray() {
-        return null;
-    }
+        List<String> strings = new LinkedList<String>();
 
-    public Long[] readLongArray() {
-        return null;
+        while (scanner.hasNext()) {
+            String line = scanner.nextLine();
+            if (line.equals("end")) break;
+            strings.add(line);
+        }
+
+        return strings.toArray(new String[0]);
     }
 
 }
