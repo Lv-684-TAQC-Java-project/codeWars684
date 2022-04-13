@@ -35,6 +35,14 @@ public class TaskRunner {
                 six = new com.org.ita.kata.implementation.Antress.SixImpl();
                 five = new com.org.ita.kata.implementation.Antress.FiveImpl();
                 break;
+
+
+            case DMYTRO:
+                eight = new com.org.ita.kata.implementation.DGalak.EightImpl();
+                seven = new com.org.ita.kata.implementation.DGalak.SevenImpl();
+                six = new com.org.ita.kata.implementation.DGalak.SixImpl();
+                five = new com.org.ita.kata.implementation.DGalak.FiveImpl();
+                break;
         }
     }
 
