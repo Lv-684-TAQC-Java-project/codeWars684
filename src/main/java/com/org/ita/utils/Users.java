@@ -1,7 +1,8 @@
 package com.org.ita.utils;
 
 public enum Users {
-    ANASTASIIA(1, "Lahuza Anastasiia");
+    ANASTASIIA(1, "Lahuza Anastasiia"),
+    VOLODYMYR(7,"Zhemela Volodymyr");
 
     private final int id;
     private final String fullName;
