@@ -22,7 +22,14 @@ public class ConsoleScanner {
     }
 
     public Long readLong() {
-        return null;
+        while (true) {
+            if (scanner.hasNextLong()) {
+                return scanner.nextLong();
+            } else {
+                System.out.println("Value is not 'Long', please try again.");
+                scanner.next();
+            }
+        }
     }
 
     public Float readFloat() {
@@ -34,7 +41,14 @@ public class ConsoleScanner {
     }
 
     public String readString() {
-        return null;
+        while (true) {
+            if (scanner.hasNextLine()) {
+                return scanner.next();
+            } else {
+                System.out.println("Value is not 'String', please try again.");
+                scanner.next();
+            }
+        }
     }
 
     public BigInteger readBigInteger() {
