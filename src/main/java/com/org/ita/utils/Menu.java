@@ -1,5 +1,6 @@
 package com.org.ita.utils;
 
+
 public class Menu {
     private final ConsoleScanner scanner = new ConsoleScanner();
     private final TaskRunner taskRunner = new TaskRunner();
@@ -20,6 +21,7 @@ public class Menu {
                     Users users = Users.getById(user_id);
                     taskRunner.setUser(users);
             }
+
 
         } while (choice != 0);
     }

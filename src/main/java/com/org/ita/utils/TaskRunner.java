@@ -42,4 +42,5 @@ public class TaskRunner {
         Double height = scanner.readDouble();
         System.out.println("Result: " + eight.getVolumeOfCuboid(length, width, height));
     }
+
 }
