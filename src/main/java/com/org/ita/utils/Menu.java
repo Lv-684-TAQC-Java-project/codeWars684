@@ -33,13 +33,14 @@ public class Menu {
                     System.out.println();
                     int user_id = scanner.readInt();
                     if (user_id < 1 || user_id >8) {
-                    System.out.println("No such user, try again\n");
-                    break;
-                }
-                Users users = Users.getById(user_id);
-                taskRunner.setUser(users);
+                        System.out.println("No such user, try again\n");
+                        break;
+                    }
+                    Users users = Users.getById(user_id);
+                    taskRunner.setUser(users);
 
                 case 2:
+                    SetTask s1 = new SetTask();
                     System.out.println("List of tasks:");
                     SetTask s1 = new SetTask();
                     for (Tasks task : Tasks.values()) {
@@ -47,13 +48,8 @@ public class Menu {
                     }
                     System.out.println();
                     int taskId = scanner.readInt();
-
-                    if (taskId < 1 || taskId >24) {
-                        System.out.println("Entered value not belongs to range ( 1-24 ) , or chosen task not added yet \n");
-                        break;
-                    }
                     s1.setTask(taskId);
-
+                    
             }
 
         } while (choice != 0);
