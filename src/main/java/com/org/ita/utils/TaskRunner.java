@@ -54,4 +54,13 @@ public class TaskRunner {
         Double number = scanner.readDouble();
         System.out.println("Result: " + six.f(number));
     }
+    public void task_6_4() {
+        System.out.println(Tasks.TASK_6_4.getTaskName());
+        System.out.println("Enter City");
+        String city = scanner.readString();
+        System.out.println("Enter Data");
+        String data = scanner.readString();
+        System.out.println("Result mean: " + six.mean(city,data));
+        System.out.println("Result variance: " + six.variance(city,data));
+    }
 }
