@@ -28,14 +28,17 @@ public class TaskRunner {
                 six = new com.org.ita.kata.implementation.AnastasiaLahuza.SixImpl();
                 five = new com.org.ita.kata.implementation.AnastasiaLahuza.FiveImpl();
                 break;
-
             case ANTON:
                 eight = new com.org.ita.kata.implementation.Antress.EightImpl();
                 seven = new com.org.ita.kata.implementation.Antress.SevenImpl();
                 six = new com.org.ita.kata.implementation.Antress.SixImpl();
                 five = new com.org.ita.kata.implementation.Antress.FiveImpl();
                 break;
-
+            case OLES:
+                eight = new com.org.ita.kata.implementation.OlesNikon.EightImpl();
+                seven = new com.org.ita.kata.implementation.OlesNikon.SevenImpl();
+                six = new com.org.ita.kata.implementation.OlesNikon.SixImpl();
+                five = new com.org.ita.kata.implementation.OlesNikon.FiveImpl();
             case MAKA:
                 eight = new com.org.ita.kata.implementation.maka155.EightImpl();
                 seven = new com.org.ita.kata.implementation.maka155.SevenImpl();
