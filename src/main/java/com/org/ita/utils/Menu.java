@@ -19,6 +19,15 @@ public class Menu {
                     int user_id = scanner.readInt();
                     Users users = Users.getById(user_id);
                     taskRunner.setUser(users);
+                case 7:
+                    System.out.println("List of users:");
+                    for (Users user : Users.values()) {
+                        System.out.println(String.format("%s - %s", user.getId(), user.getFullName()));
+                    }
+                    System.out.println();
+                    int user_id7 = scanner.readInt();
+                    Users users7 = Users.getById(user_id7);
+                    taskRunner.setUser(users7);
             }
 
         } while (choice != 0);

@@ -29,6 +29,12 @@ public class TaskRunner {
                 six = new com.org.ita.kata.implementation.AnastasiaLahuza.SixImpl();
                 five = new com.org.ita.kata.implementation.AnastasiaLahuza.FiveImpl();
                 break;
+            case VOLODYMYR:
+                eight = new com.org.ita.kata.implementation.Volodja85.EightImpl();
+                seven = new com.org.ita.kata.implementation.Volodja85.SevenImpl();
+                six = new com.org.ita.kata.implementation.Volodja85.SixImpl();
+                five = new com.org.ita.kata.implementation.Volodja85.FiveImpl();
+                break;
         }
     }
 
