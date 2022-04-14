@@ -38,7 +38,7 @@ public class Menu {
                     }
                     Users users = Users.getById(user_id);
                     taskRunner.setUser(users);
-
+                    break;
                 case 2:
                     SetTask s1 = new SetTask();
                     System.out.println("List of tasks:");
@@ -49,6 +49,7 @@ public class Menu {
                     System.out.println();
                     int taskId = scanner.readInt();
                     s1.setTask(taskId);
+                    break;
                     
             }
 

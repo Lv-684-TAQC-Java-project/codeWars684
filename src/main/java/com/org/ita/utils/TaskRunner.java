@@ -17,6 +17,7 @@ public class TaskRunner {
     public TaskRunner() {
         this.scanner = new ConsoleScanner();
         setUser(Users.ANASTASIIA);
+        setUser(Users.VOLODYMYR);
     }
 
     public void setUser(Users user) {
@@ -27,6 +28,12 @@ public class TaskRunner {
                 seven = new com.org.ita.kata.implementation.AnastasiaLahuza.SevenImpl();
                 six = new com.org.ita.kata.implementation.AnastasiaLahuza.SixImpl();
                 five = new com.org.ita.kata.implementation.AnastasiaLahuza.FiveImpl();
+                break;
+            case VOLODYMYR:
+                eight = new com.org.ita.kata.implementation.Volodja85.EightImpl();
+                seven = new com.org.ita.kata.implementation.Volodja85.SevenImpl();
+                six = new com.org.ita.kata.implementation.Volodja85.SixImpl();
+                five = new com.org.ita.kata.implementation.Volodja85.FiveImpl();
                 break;
             case ANTON:
                 eight = new com.org.ita.kata.implementation.Antress.EightImpl();
@@ -102,6 +109,23 @@ public class TaskRunner {
         String text = scanner.readString();
         System.out.println("Result: " + six.balance(text));
     }
+  
+   public void task_6_3() {
+        System.out.println(Tasks.TASK_6_3.getTaskName());
+        System.out.println("Enter number");
+        Double number = scanner.readDouble();
+        System.out.println("Result: " + six.f(number));
+    }
+  
+    public void task_6_4() {
+        System.out.println(Tasks.TASK_6_4.getTaskName());
+        System.out.println("Enter City");
+        String city = scanner.readString();
+        System.out.println("Enter Data");
+        String data = scanner.readString();
+        System.out.println("Result mean: " + six.mean(city,data));
+        System.out.println("Result variance: " + six.variance(city,data));
+    }
 
     public void task_6_5() {
         System.out.println(Tasks.TASK_6_5.getTaskName());
@@ -120,5 +144,4 @@ public class TaskRunner {
         String[] lstOf1stLetter = scanner.readString().split(",");
         System.out.println("Result: " + six.stockSummary(lstOfArt , lstOf1stLetter));
     }
-
 }

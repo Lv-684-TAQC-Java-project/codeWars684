@@ -5,7 +5,8 @@ public enum Users {
     ANTON(2,"Shcherbei Anton"),
     DMYTRO(3,"Galak Dmytro"),
     OLES(4,"Nikaniuk Oles"),
-    MAKA(5, "Markiian Martunyuk");
+    MAKA(5, "Markiian Martunyuk"),
+    VOLODYMYR(7,"Zhemela Volodymyr");
 
     private final int id;
     private final String fullName;
