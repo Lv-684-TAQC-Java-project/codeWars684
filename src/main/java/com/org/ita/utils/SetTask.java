@@ -74,7 +74,6 @@ public class SetTask {
 //                    t1.task_5_6();
 //                    break;
             default:
-                System.out.println("Entered value not belongs to range ( 1-24 ) , or chosen task not added yet ");
                 System.exit(3);
         }
     }
