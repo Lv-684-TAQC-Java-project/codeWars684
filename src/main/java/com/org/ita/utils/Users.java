@@ -3,10 +3,8 @@ package com.org.ita.utils;
 public enum Users {
     ANASTASIIA(1, "Lahuza Anastasiia"),
     ANTON(2,"Shcherbei Anton"),
-
-    OLES(4,"Nikaniuk Oles");
-
-
+    OLES(4,"Nikaniuk Oles"),
+    MAKA(3, "Markiian Martunyuk");
 
     private final int id;
     private final String fullName;
