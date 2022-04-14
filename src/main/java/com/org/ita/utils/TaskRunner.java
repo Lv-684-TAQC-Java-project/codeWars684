@@ -48,4 +48,10 @@ public class TaskRunner {
         Double height = scanner.readDouble();
         System.out.println("Result: " + eight.getVolumeOfCuboid(length, width, height));
     }
+    public void task_6_3() {
+        System.out.println(Tasks.TASK_6_3.getTaskName());
+        System.out.println("Enter number");
+        Double number = scanner.readDouble();
+        System.out.println("Result: " + six.f(number));
+    }
 }
