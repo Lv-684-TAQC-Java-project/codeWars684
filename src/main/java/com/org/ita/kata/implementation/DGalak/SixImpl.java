@@ -193,6 +193,23 @@ public class SixImpl implements Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return null;
+
+        if (lstOfArt.length == 0) {
+            return "";
+        }
+        final int whiteSpace = lstOfArt[0].indexOf(" ");
+        List<Integer> resultStringArray = new ArrayList<Integer>();
+        for (String letter : lstOf1stLetter) {
+            resultStringArray.add(Stream.of(lstOfArt)
+                    .filter(el -> el.substring(0, 1).equals(letter))
+                    .map(el -> el.substring(whiteSpace + 1))
+                    .mapToInt(el -> Integer.parseInt(el))
+                    .sum());
+        }
+        List<String> lettersAndCountArray = new ArrayList<String>();
+        for (int i = 0; i < resultStringArray.size(); i++) {
+            lettersAndCountArray.add(String.format("(%s : %d) ", lstOf1stLetter[i], resultStringArray.get(i)));
+        }
+        return String.join("- ", lettersAndCountArray).trim();
     }
 }
