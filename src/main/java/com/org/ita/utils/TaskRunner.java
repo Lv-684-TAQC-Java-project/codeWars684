@@ -18,6 +18,7 @@ public class TaskRunner {
     public TaskRunner() {
         this.scanner = new ConsoleScanner();
         setUser(Users.ANASTASIIA);
+        setUser(Users.VOLODYMYR);
     }
 
     public void setUser(Users user) {
