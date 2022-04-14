@@ -9,7 +9,7 @@ public class EightImpl implements Eight {
     }
 
     @Override
-    public static double getVolumeOfCuboid(final double length, final double width, final double height) {
+    public double getVolumeOfCuboid(final double length, final double width, final double height) {
     double volume =0;
     volume = length*width*height;
     return volume;
