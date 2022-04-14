@@ -74,6 +74,7 @@ public class SetTask {
 //                    t1.task_5_6();
 //                    break;
             default:
+
                 System.exit(3);
         }
     }
