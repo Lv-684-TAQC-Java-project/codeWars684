@@ -96,6 +96,22 @@ public class TaskRunner {
         System.out.println("Result: " + eight.divisibleBy(numbers, divider));
     }
 
+    public void task_7_1() {
+        System.out.println(Tasks.TASK_7_1.getTaskName());
+        System.out.println("Enter list of donations:");
+        double[] arr = scanner.readDoubleArray();
+        System.out.println("Enter average:");
+        Double navg = scanner.readDouble();
+        System.out.println("Result: " + seven.newAvg(arr, navg));
+    }
+
+    public void task_7_2() {
+        System.out.println(Tasks.TASK_7_2.getTaskName());
+        System.out.println("Enter number:");
+        int n = scanner.readInt();
+        System.out.println("Result: " + seven.seriesSum(n));
+    }
+
     public void task_6_1() {
         System.out.println(Tasks.TASK_6_1.getTaskName());
         System.out.println("Enter integer value");
@@ -109,7 +125,7 @@ public class TaskRunner {
         String text = scanner.readString();
         System.out.println("Result: " + six.balance(text));
     }
-  
+
    public void task_6_3() {
         System.out.println(Tasks.TASK_6_3.getTaskName());
         System.out.println("Enter number");
