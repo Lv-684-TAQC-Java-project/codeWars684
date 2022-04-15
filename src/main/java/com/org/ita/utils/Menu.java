@@ -42,7 +42,6 @@ public class Menu {
 
                     break;
                 case 2:
-                    SetTask s1 = new SetTask();
                     System.out.println("List of tasks:");
                     SetTask s1 = new SetTask();
                     for (Tasks task : Tasks.values()) {
