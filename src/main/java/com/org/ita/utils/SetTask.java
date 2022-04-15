@@ -1,6 +1,7 @@
 package com.org.ita.utils;
 
 public class SetTask {
+
     public void setTask(int scanner) {
         TaskRunner t1 = new TaskRunner();
         switch (scanner) {
@@ -17,10 +18,10 @@ public class SetTask {
 //                    t1.task_8_5();
                 break;
             case 6:
-               // t1.task_8_6();
+                t1.task_8_6();
                 break;
             case 7:
-              //  t1.task_8_7();
+                t1.task_8_7();
                 break;
 //                case 8:
 //                    t1.task_8_8();
@@ -38,10 +39,10 @@ public class SetTask {
 //                    t1.task_7_3();
 //                    break;
             case 13:
-              //  t1.task_6_1();
+                t1.task_6_1();
                 break;
             case 14:
-              //  t1.task_6_2();
+                t1.task_6_2();
                 break;
 //                case 15:
 //                    t1.task_6_3();
@@ -74,7 +75,6 @@ public class SetTask {
 //                    t1.task_5_6();
 //                    break;
             default:
-
                 System.exit(3);
         }
     }
