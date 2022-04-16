@@ -41,6 +41,12 @@ public class EightImpl implements Eight {
         int[] result = new int[2];
         result[0] = 0;
         result[1] = 0;
+
+        if (input == null || input.length == 0) {
+            int[] n = {};
+            return n;
+        }
+
         for (int j : input) {
             if (j > 0) {
                 result[0]++;
@@ -49,7 +55,6 @@ public class EightImpl implements Eight {
             }
         }
         return result;
-
     }
 
     @Override
