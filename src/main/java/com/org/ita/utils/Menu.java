@@ -43,7 +43,7 @@ public class Menu {
                     break;
                 case 2:
                     System.out.println("List of tasks:");
-                   // SetTask s1 = new SetTask();
+                    SetTask s1 = new SetTask();
                     for (Tasks task : Tasks.values()) {
                         System.out.println(String.format("%s - %s", task.getId(), task.getTaskName()));
                     }
