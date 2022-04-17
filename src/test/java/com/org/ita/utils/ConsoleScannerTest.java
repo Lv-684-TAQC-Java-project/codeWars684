@@ -65,6 +65,12 @@ public class ConsoleScannerTest {
 
     @Test
     public void testReadDoubleArray() {
+        String input = "5 23.3 12.9 15.5 16.6 0.32";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        ConsoleScanner cs = new ConsoleScanner();
+        double [] expected = new double[]{23.3, 12.9, 15.5, 16.6, 0.32};
+        double [] actual = cs.readDoubleArray();
+        Assert.assertEquals(actual,expected);
     }
 
     @Test

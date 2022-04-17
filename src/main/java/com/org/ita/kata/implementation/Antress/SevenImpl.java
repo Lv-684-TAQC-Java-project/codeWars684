@@ -1,8 +1,9 @@
 package com.org.ita.kata.implementation.Antress;
 
 import com.org.ita.kata.Seven;
+import com.org.ita.kata.implementation.Base;
 
-public class SevenImpl implements Seven {
+public class SevenImpl extends Base implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
         // your code

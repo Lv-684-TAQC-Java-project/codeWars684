@@ -1,6 +1,7 @@
 package com.org.ita.kata.implementation.Antress;
 
 import com.org.ita.kata.Five;
+import com.org.ita.kata.implementation.Base;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 
-public class FiveImpl implements Five {
+public class FiveImpl extends Base implements Five {
     @Override
     public int artificialRain(int[] v) {
         // your code here
@@ -17,15 +18,15 @@ public class FiveImpl implements Five {
         int area = 0;
         int record = 1;
 
-        for(int i = 1; i < v.length; i++){
-            if(v[i] < v[i - 1]) left = i;
-            else if(v[i] > v[i-1]){
-                area = area > record? area : record;
+        for (int i = 1; i < v.length; i++) {
+            if (v[i] < v[i - 1]) left = i;
+            else if (v[i] > v[i - 1]) {
+                area = area > record ? area : record;
                 record = i - left;
             }
             record++;
         }
-        return area > record? area : record;
+        return area > record ? area : record;
     }
 
     @Override
@@ -109,6 +110,29 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] smallest(long n) {
-        return new long[0];
+        assert n >= 0;
+
+        // Convert n to a string
+        String s = "" + n;
+        final int numDigits = s.length();
+
+        String smallest = s;
+        long smallesti = 0;
+        long smallestj = 0;
+
+        for (int i = 0; i < numDigits; i++) {
+            for (int j = 0; j < numDigits; j++) {
+                if (i == j) continue;
+                String s2 = s.substring(0, i) + s.substring(i + 1);
+                s2 = s2.substring(0, j) + s.charAt(i) + s2.substring(j);
+                if (smallest.compareTo(s2) > 0) {
+                    smallest = s2;
+                    smallesti = i;
+                    smallestj = j;
+                }
+            }
+        }
+        return new long[]{Long.valueOf(smallest), smallesti, smallestj};
     }
 }
+

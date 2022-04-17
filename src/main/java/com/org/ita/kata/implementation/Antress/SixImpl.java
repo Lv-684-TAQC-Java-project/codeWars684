@@ -1,13 +1,14 @@
 package com.org.ita.kata.implementation.Antress;
 
 import com.org.ita.kata.Six;
+import com.org.ita.kata.implementation.Base;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class SixImpl implements Six {
+public class SixImpl  extends Base implements Six {
     @Override
     public long findNb(long m) {
         // your code
@@ -103,27 +104,6 @@ public class SixImpl implements Six {
         double[] resultArray= temps.stream().mapToDouble(Double::doubleValue).toArray();
         return resultArray;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     @Override
     public String nbaCup(String resultSheet, String toFind) {

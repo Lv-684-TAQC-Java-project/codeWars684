@@ -48,8 +48,19 @@ public class EightTest extends DataProviderUserImpl {
     public void testAmIWilson() {
     }
 
-    @Test
-    public void testTwoDecimalPlaces() {
+    @DataProvider(name = "TwoDecimalPlaces")
+    public Object[][] TwoDecimalPlaces() {
+        Object[][] data = new Object[][]{
+                {14.4141414144 ,14.41},
+                {3.0232, 3.02}
+        };
+        return combine(implementationsEightKataDataProvider(), data);
+    }
+
+    @Test(dataProvider = "TwoDecimalPlaces")
+    public void testTwoDecimalPlaces(Eight impl, double number, double expected) {
+        double actual = impl.twoDecimalPlaces(number);
+        Assert.assertEquals(actual,expected);
     }
 
     @Test

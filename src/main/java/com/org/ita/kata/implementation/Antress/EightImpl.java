@@ -1,8 +1,9 @@
 package com.org.ita.kata.implementation.Antress;
 
 import com.org.ita.kata.Eight;
+import com.org.ita.kata.implementation.Base;
 
-public class EightImpl implements Eight {
+public class EightImpl extends Base implements Eight {
     @Override
     public int liters(double time) {
         return 0;
