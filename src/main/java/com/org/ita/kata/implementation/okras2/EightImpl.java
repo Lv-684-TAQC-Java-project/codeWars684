@@ -32,9 +32,16 @@ public class EightImpl implements Eight {
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        try{
+            int number = Integer.parseInt(str);
+            System.out.println(number);
+      return number;
+        }
+        catch (NumberFormatException ex){
+            ex.printStackTrace();
+        }
+    return 0;
     }
-
     @Override
     public boolean amIWilson(double n) {
         return false;
