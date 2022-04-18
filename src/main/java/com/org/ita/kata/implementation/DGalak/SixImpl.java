@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class SixImpl implements Six {
@@ -129,11 +130,86 @@ public class SixImpl implements Six {
 
     @Override
     public String nbaCup(String resultSheet, String toFind) {
-        return null;
+
+        List<String> playedMatches = Arrays.stream(resultSheet.split(",")).filter(x -> x.contains(toFind + " ")).collect(Collectors.toList());
+        if (toFind.isEmpty()) {
+            return "";
+        }
+        if (playedMatches.isEmpty()) {
+            return toFind + ":This team didn't play!";
+        }
+        List<String[]> competitorTeams = new ArrayList<String[]>();
+
+        for (int i = 0; i < playedMatches.size(); i++) {
+            competitorTeams.add(Arrays.stream(playedMatches.get(i).replaceAll("\\b\\d+\\b", "").split("  ")).map(el -> el.trim()).toArray(String[]::new));
+        }
+
+        List<Integer[]> teamScoresValues = new ArrayList<Integer[]>();
+        for (int i = 0; i < playedMatches.size(); i++) {
+            teamScoresValues.add(Arrays.stream(playedMatches.get(i).split(" ")).filter(el -> el.matches("\\d+")).map(el -> Integer.valueOf(el)).toArray(Integer[]::new));
+        }
+        int wins = 0;
+        int draws = 0;
+        int lose = 0;
+        int scored = 0;
+        int conceded = 0;
+        int points = 0;
+        for (int i = 0; i < competitorTeams.size(); i++) {
+            try {
+                boolean draw = teamScoresValues.get(i)[0] == teamScoresValues.get(i)[1];
+            } catch (ArrayIndexOutOfBoundsException e) {
+                return "Error(float number):" + playedMatches.get(i);
+            }
+            boolean teamFirst = competitorTeams.get(i)[0].equals(toFind);
+            if (teamFirst) {
+                scored += teamScoresValues.get(i)[0];
+                conceded += teamScoresValues.get(i)[1];
+            } else {
+                scored += teamScoresValues.get(i)[1];
+                conceded += teamScoresValues.get(i)[0];
+            }
+            if (teamScoresValues.get(i)[0] == teamScoresValues.get(i)[1]) {
+                draws++;
+                points++;
+            } else if (teamScoresValues.get(i)[0] < teamScoresValues.get(i)[1]) {
+                if (teamFirst) {
+                    lose++;
+                } else {
+                    wins++;
+                    points += 3;
+                }
+            } else {
+                if (teamFirst) {
+                    wins++;
+                    points += 3;
+                } else {
+                    lose++;
+                }
+            }
+        }
+        return String.format(toFind + ":W=%s;D=%s;L=%s;Scored=%s;Conceded=%s;Points=%s",
+                wins, draws, lose, scored, conceded, points);
     }
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return null;
+
+        if (lstOfArt.length == 0) {
+            return "";
+        }
+        final int whiteSpace = lstOfArt[0].indexOf(" ");
+        List<Integer> resultStringArray = new ArrayList<Integer>();
+        for (String letter : lstOf1stLetter) {
+            resultStringArray.add(Stream.of(lstOfArt)
+                    .filter(el -> el.substring(0, 1).equals(letter))
+                    .map(el -> el.substring(whiteSpace + 1))
+                    .mapToInt(el -> Integer.parseInt(el))
+                    .sum());
+        }
+        List<String> lettersAndCountArray = new ArrayList<String>();
+        for (int i = 0; i < resultStringArray.size(); i++) {
+            lettersAndCountArray.add(String.format("(%s : %d) ", lstOf1stLetter[i], resultStringArray.get(i)));
+        }
+        return String.join("- ", lettersAndCountArray).trim();
     }
 }
