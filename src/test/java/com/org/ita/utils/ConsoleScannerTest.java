@@ -69,6 +69,17 @@ public class ConsoleScannerTest {
 
     @Test
     public void testReadIntArray() {
+        String input = "15";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        ConsoleScanner cs = new ConsoleScanner();
+        OutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        int actual1 = cs.readInt();
+        int[]actual={actual1,actual1,actual1};
+        int[] expected={15,15,15};
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(actual, expected,"data isn't corect");
+        softAssert.assertAll();
     }
 
     @Test
