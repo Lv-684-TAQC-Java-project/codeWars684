@@ -80,6 +80,7 @@ public class ConsoleScannerTest {
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(actual, expected,"data isn't corect");
         softAssert.assertAll();
+
     }
 
     @Test
