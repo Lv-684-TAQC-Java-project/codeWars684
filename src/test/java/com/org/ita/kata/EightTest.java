@@ -27,9 +27,20 @@ public class EightTest extends DataProviderUserImpl {
         Assert.assertEquals(actual, expected);
     }
 
+    @DataProvider(name = "TestMpgToKPM")
+    public Object[][] testMpgToKPMCombineDP() {
+        Object[][] data = new Object[][]{
+                {10f, 3.54f},
+                {20f, 7.08f},
+                {30f, 10.62f}
+        };
+        return combine(implementationsEightKataDataProvider(), data);
+    }
 
-    @Test
-    public void testMpgToKPM() {
+    @Test(dataProvider = "TestMpgToKPM")
+    public void testMpgToKPM(Eight impl, float mpg, float expected) {
+        float actual = impl.mpgToKPM(mpg);
+        Assert.assertEquals(actual, expected);
     }
 
     @Test
