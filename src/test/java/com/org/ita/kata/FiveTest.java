@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 import java.math.BigInteger;
 
-public class FiveTest {
+public class FiveTest extends DataProviderUserImpl{
 
     @Test
     public void testArtificialRain() {
