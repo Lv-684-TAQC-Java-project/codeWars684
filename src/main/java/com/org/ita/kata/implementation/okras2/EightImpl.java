@@ -17,8 +17,12 @@ public class EightImpl implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
-    }
+    float ImpGalltoLit = 4.54609188f;
+    float MiletoKM = 1.609344f;
+    float KMperLit = 0;
+    KMperLit = (mpg*MiletoKM)/ImpGalltoLit;
+    return KMperLit;
+  }
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
