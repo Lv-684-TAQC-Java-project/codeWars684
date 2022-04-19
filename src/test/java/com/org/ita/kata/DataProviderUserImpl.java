@@ -42,6 +42,20 @@ public class DataProviderUserImpl {
         };
     }
     @DataProvider
+    public Object[][] implementationsFiveKataDataProvider() {
+        return new Object[][]{
+                {new com.org.ita.kata.implementation.AnastasiaLahuza.FiveImpl()},
+                {new com.org.ita.kata.implementation.Antress.FiveImpl()},
+                {new com.org.ita.kata.implementation.DGalak.FiveImpl()},
+                {new com.org.ita.kata.implementation.DYevhen97.FiveImpl()},
+                {new com.org.ita.kata.implementation.maka155.FiveImpl()},
+                {new com.org.ita.kata.implementation.okras2.FiveImpl()},
+                {new com.org.ita.kata.implementation.OlesNikon.FiveImpl()},
+                {new com.org.ita.kata.implementation.Volodja85.FiveImpl()}
+        };
+    }
+  
+    @DataProvider
     public Object[][] implementationsSevenKataDataProvider() {
         return new Object[][]{
                 {new com.org.ita.kata.implementation.AnastasiaLahuza.SevenImpl()},
@@ -66,6 +80,7 @@ public class DataProviderUserImpl {
                 {new com.org.ita.kata.implementation.okras2.SixImpl()},
                 {new com.org.ita.kata.implementation.OlesNikon.SixImpl()},
                 {new com.org.ita.kata.implementation.Volodja85.SixImpl()}
+
         };
     }
 }
