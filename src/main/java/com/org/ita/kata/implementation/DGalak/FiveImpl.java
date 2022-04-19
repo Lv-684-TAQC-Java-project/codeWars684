@@ -5,9 +5,54 @@ import com.org.ita.kata.Five;
 import java.math.BigInteger;
 
 public class FiveImpl implements Five {
+    private static final String leftDirection = "left";
+    private static final String rightDirection = "right";
     @Override
-    public int artificialRain(int[] v) {
-        return 0;
+      public int artificialRain(int[] v) {
+        int[] dataForRight = combineDataDirection(rightDirection, v);
+        int[] dataForLeft = combineDataDirection(leftDirection, v);
+        int sectionsCounter = 0;
+        for (int i = 0; i < dataForRight.length; i++) {
+            sectionsCounter = Math.max(1 + dataForRight[i] + dataForLeft[i], sectionsCounter);
+        }
+        return sectionsCounter;
+    }
+
+    static boolean canWaterFlowDirections(String direction, int[] numbers, int i) {
+        boolean canFlow = false;
+        if (direction.equals(rightDirection)) {
+            if (numbers.length - 1 == i)
+                return false;
+            canFlow = numbers[i + 1] <= numbers[i];
+        }
+        else if (direction.equals(leftDirection)) {
+            if (i == 0)
+                return false;
+            canFlow = numbers[i - 1] <= numbers[i];
+        }
+        return canFlow;
+    }
+    static int[] combineDataDirection(String direction,int[] numbers) {
+        int[] dataDirection = new int[numbers.length];
+        if (direction.equals(leftDirection)) {
+            for (int i = 0; i < numbers.length; i++) {
+                if (canWaterFlowDirections(leftDirection, numbers, i)) {
+                    dataDirection[i] = dataDirection[i - 1] + 1;
+                } else {
+                    dataDirection[i] = 0;
+                }
+            }
+        }
+        else if (direction.equals(rightDirection)) {
+            for (int i = numbers.length - 1; i >= 0; i--) {
+                if (canWaterFlowDirections(rightDirection, numbers, i)) {
+                    dataDirection[i] = dataDirection[i + 1] + 1;
+                } else {
+                    dataDirection[i] = 0;
+                }
+            }
+        }
+        return dataDirection;
     }
 
     @Override
