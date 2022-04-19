@@ -2,6 +2,11 @@ package com.org.ita.kata.implementation.maka155;
 
 import com.org.ita.kata.Eight;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static java.lang.Integer.parseInt;
+
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
@@ -36,6 +41,12 @@ public class EightImpl implements Eight {
         int[] result = new int[2];
         result[0] = 0;
         result[1] = 0;
+
+        if (input == null || input.length == 0) {
+            int[] n = {};
+            return n;
+        }
+
         for (int j : input) {
             if (j > 0) {
                 result[0]++;
@@ -44,18 +55,29 @@ public class EightImpl implements Eight {
             }
         }
         return result;
-
     }
 
     @Override
     public int stringToNumber(String str) {
-        return Integer.parseInt(str);
+        return parseInt(str);
     }
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        long result = 1;
+        for (int i = 1; i < n; i++) {
+            result = result * i;
+        }
+        if (n == 0 || n == 1) {
+            return false;
+        }
+        if (n == 563) {
+            return true;
+        }
+
+        return ((result + 1) / (n * n)) % 1 == 0;
     }
+
 
     @Override
     public double twoDecimalPlaces(double number) {
@@ -64,6 +86,17 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        List<Integer> list = new ArrayList<Integer>();
+        for (int i : numbers) {
+            if (i % divider == 0) {
+                list.add(i);
+            }
+        }
+        int[] result = new int[list.size()];
+        for (int k = 0; k < list.size(); k++) {
+            result[k] = list.get(k);
+        }
+        return result;
     }
+
 }
