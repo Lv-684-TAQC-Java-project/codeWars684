@@ -4,10 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.OutputStream;
-import java.io.PrintStream;
+import java.io.*;
 
 import static org.testng.Assert.*;
 
@@ -41,6 +38,11 @@ public class ConsoleScannerTest {
 
     @Test
     public void testReadLong() {
+        String input = "15 aa cad";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        ConsoleScanner cs = new ConsoleScanner();
+        long actual = cs.readLong();
+        Assert.assertEquals(actual, 15);
     }
 
     @Test
