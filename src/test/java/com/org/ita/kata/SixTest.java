@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class SixTest {
+public class SixTest extends DataProviderUserImpl{
 
     @DataProvider(name = "findNb")
     public Object[][] findNb() {
