@@ -64,22 +64,16 @@ public class ConsoleScannerTest {
 
     @Test
     public void testReadDoubleArray() {
-        String input = "5 5,35 6,21 0,123 0,00001";
+        String input = "5 5,35 6,21 0,123 0,00001 6,234";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         ConsoleScanner cs = new ConsoleScanner();
         OutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
         System.out.println(output);
-
+        double[] excepted = new double[]{5.35 ,6.21 ,0.123 ,0.00001, 6.234};
         double [] actual = cs.readDoubleArray();
+         Assert.assertEquals(actual,excepted);
 
-        System.out.println(output);
-//        SoftAssert softAssert = new SoftAssert();
-//        softAssert.assertEquals(actual1, 15, "bfjdhbgdj");
-//        softAssert.assertEquals(actual1, 115, "bjkhbdskjgvbsdkjbvsfk");
-//        softAssert.assertEquals(actual2, 3, "3True");
-//        softAssert.assertEquals(actual2, 13, "3False");
-//        softAssert.assertAll();
     }
 
     @Test
