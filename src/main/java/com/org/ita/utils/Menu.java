@@ -40,13 +40,12 @@ public class Menu {
                     break;
                 case 2:
                     System.out.println("List of tasks:");
-                    SetTask s1 = new SetTask();
                     for (Tasks task : Tasks.values()) {
                         System.out.println(String.format("%s - %s", task.getId(), task.getTaskName()));
                     }
                     System.out.println();
                     int taskId = scanner.readInt();
-                    s1.setTask(taskId);
+                    taskRunner.runTask(taskId);
                     break;
             }
 
