@@ -32,7 +32,6 @@ public class ConsoleScannerTest {
         softAssert.assertAll();
 
 
-
     }
 
     @Test
@@ -73,7 +72,7 @@ public class ConsoleScannerTest {
         System.setOut(new PrintStream(output));
         System.out.println(output);
 
-        double [] actual = cs.readDoubleArray();
+        double[] actual = cs.readDoubleArray();
 
         System.out.println(output);
 //        SoftAssert softAssert = new SoftAssert();
@@ -86,16 +85,15 @@ public class ConsoleScannerTest {
 
     @Test
     public void testReadIntArray() {
-        String input = "15";
+        String input = "3 15 14 13";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         ConsoleScanner cs = new ConsoleScanner();
         OutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
-        int actual1 = cs.readInt();
-        int[]actual={actual1,actual1,actual1};
-        int[] expected={15,15,15};
+        int[] actual = cs.readIntArray();
+        int[] expected = {15, 14, 13};
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(actual, expected,"data isn't corect");
+        softAssert.assertEquals(actual, expected, "data isn't corect");
         softAssert.assertAll();
 
     }

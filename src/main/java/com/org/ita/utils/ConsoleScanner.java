@@ -24,11 +24,10 @@ public class ConsoleScanner {
     }
 
     public Long readLong() {
-        while(true){
-            if(scanner.hasNextLong()){
+        while (true) {
+            if (scanner.hasNextLong()) {
                 return scanner.nextLong();
-            }
-            else {
+            } else {
                 System.out.println("Value is not 'Long', please try again.");
                 scanner.next();
             }
