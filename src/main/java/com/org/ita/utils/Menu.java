@@ -30,16 +30,13 @@ public class Menu {
                     for (Users user : Users.values()) {
                         System.out.println(String.format("%s - %s", user.getId(), user.getFullName()));
                     }
-
-                    try {
-                        int user_id = scanner.readInt();
-                        Users users = Users.getById(user_id);
-                        taskRunner.setUser(users);
-                    }catch (NullPointerException e){
+                    int user_id = scanner.readInt();
+                    if (user_id < 1 || user_id >8) {
                         System.out.println("No such user, try again\n");
                         break;
                     }
-
+                    Users users = Users.getById(user_id);
+                    taskRunner.setUser(users);
                     break;
                 case 2:
                     System.out.println("List of tasks:");
@@ -51,7 +48,6 @@ public class Menu {
                     int taskId = scanner.readInt();
                     s1.setTask(taskId);
                     break;
-                    
             }
 
         } while (choice != 0);
