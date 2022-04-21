@@ -57,7 +57,6 @@ public class EightImpl implements Eight {
         return result; //return an array with count of positives and sum of negatives
     }
 
-
     @Override
     public int stringToNumber(String str) {
         try{
