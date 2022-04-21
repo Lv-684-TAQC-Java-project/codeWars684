@@ -27,7 +27,6 @@ public class DataProviderUserImpl {
         return listObjects.toArray(new Object[0][0]);
     }
 
-
     @DataProvider
     public Object[][] implementationsEightKataDataProvider() {
         return new Object[][]{
@@ -81,7 +80,6 @@ public class DataProviderUserImpl {
                 {new com.org.ita.kata.implementation.okras2.SixImpl()},
                 {new com.org.ita.kata.implementation.OlesNikon.SixImpl()},
                 {new com.org.ita.kata.implementation.Volodja85.SixImpl()}
-
         };
     }
 }
