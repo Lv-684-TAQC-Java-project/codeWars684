@@ -87,6 +87,13 @@ public class TaskRunner {
         System.out.println("Result: " + eight.amIWilson(n));
     }
 
+    public void task_8_8() {
+        System.out.println(Tasks.TASK_8_8.getTaskName());
+        System.out.println("Enter number:");
+        Double n = scanner.readDouble();
+        System.out.println("Result: " + eight.twoDecimalPlaces(n));
+    }
+
     public void task_8_9() {
         System.out.println(Tasks.TASK_8_9.getTaskName());
         System.out.println("Enter numbers");
