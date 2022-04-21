@@ -27,7 +27,6 @@ public class DataProviderUserImpl {
         return listObjects.toArray(new Object[0][0]);
     }
 
-
     @DataProvider
     public Object[][] implementationsEightKataDataProvider() {
         return new Object[][]{
@@ -41,6 +40,35 @@ public class DataProviderUserImpl {
                 {new com.org.ita.kata.implementation.Volodja85.EightImpl()}
         };
     }
+
+    @DataProvider
+    public Object[][] implementationsFiveKataDataProvider() {
+        return new Object[][]{
+                {new com.org.ita.kata.implementation.AnastasiaLahuza.FiveImpl()},
+                {new com.org.ita.kata.implementation.Antress.FiveImpl()},
+                {new com.org.ita.kata.implementation.DGalak.FiveImpl()},
+                {new com.org.ita.kata.implementation.DYevhen97.FiveImpl()},
+                {new com.org.ita.kata.implementation.maka155.FiveImpl()},
+                {new com.org.ita.kata.implementation.okras2.FiveImpl()},
+                {new com.org.ita.kata.implementation.OlesNikon.FiveImpl()},
+                {new com.org.ita.kata.implementation.Volodja85.FiveImpl()}
+        };
+    }
+  
+    @DataProvider
+    public Object[][] implementationsSevenKataDataProvider() {
+        return new Object[][]{
+                {new com.org.ita.kata.implementation.AnastasiaLahuza.SevenImpl()},
+                {new com.org.ita.kata.implementation.Antress.SevenImpl()},
+                {new com.org.ita.kata.implementation.DGalak.SevenImpl()},
+                {new com.org.ita.kata.implementation.DYevhen97.SevenImpl()},
+                {new com.org.ita.kata.implementation.maka155.SevenImpl()},
+                {new com.org.ita.kata.implementation.okras2.SevenImpl()},
+                {new com.org.ita.kata.implementation.OlesNikon.SevenImpl()},
+                {new com.org.ita.kata.implementation.Volodja85.SevenImpl()}
+        };
+    }
+
     @DataProvider
     public Object[][] implementationsSixKataDataProvider() {
         return new Object[][]{
