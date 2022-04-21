@@ -32,7 +32,6 @@ public class ConsoleScannerTest {
         softAssert.assertAll();
 
 
-
     }
 
     @Test
@@ -73,7 +72,7 @@ public class ConsoleScannerTest {
         System.setOut(new PrintStream(output));
         System.out.println(output);
 
-        double [] actual = cs.readDoubleArray();
+        double[] actual = cs.readDoubleArray();
 
         System.out.println(output);
 //        SoftAssert softAssert = new SoftAssert();
@@ -92,16 +91,26 @@ public class ConsoleScannerTest {
         OutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
         int actual1 = cs.readInt();
-        int[]actual={actual1,actual1,actual1};
-        int[] expected={15,15,15};
+        int[] actual = {actual1, actual1, actual1};
+        int[] expected = {15, 15, 15};
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(actual, expected,"data isn't corect");
+        softAssert.assertEquals(actual, expected, "data isn't corect");
         softAssert.assertAll();
 
     }
 
     @Test
     public void testReadStringArray() {
+        String input = "4 Ivan Anna Ira Roma";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        ConsoleScanner cs = new ConsoleScanner();
+        OutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        String[] actual = cs.readStringArray();
+        String[] expected = new String[4];
+        expected[0] = " Ivan Anna Ira Roma";
+        System.out.println(output);
+        Assert.assertEquals(actual,expected,"Arrays are not equal");
     }
 
     @Test
