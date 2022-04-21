@@ -17,15 +17,15 @@ public class FiveImpl implements Five {
         int area = 0;
         int record = 1;
 
-        for(int i = 1; i < v.length; i++){
-            if(v[i] < v[i - 1]) left = i;
-            else if(v[i] > v[i-1]){
-                area = area > record? area : record;
+        for (int i = 1; i < v.length; i++) {
+            if (v[i] < v[i - 1]) left = i;
+            else if (v[i] > v[i - 1]) {
+                area = area > record ? area : record;
                 record = i - left;
             }
             record++;
         }
-        return area > record? area : record;
+        return area > record ? area : record;
     }
 
     @Override

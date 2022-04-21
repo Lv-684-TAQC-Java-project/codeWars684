@@ -133,21 +133,21 @@ public class TaskRunner {
         System.out.println("Result: " + six.balance(text));
     }
 
-   public void task_6_3() {
+    public void task_6_3() {
         System.out.println(Tasks.TASK_6_3.getTaskName());
         System.out.println("Enter number");
         Double number = scanner.readDouble();
         System.out.println("Result: " + six.f(number));
     }
-  
+
     public void task_6_4() {
         System.out.println(Tasks.TASK_6_4.getTaskName());
         System.out.println("Enter City");
         String city = scanner.readString();
         System.out.println("Enter Data");
         String data = scanner.readString();
-        System.out.println("Result mean: " + six.mean(city,data));
-        System.out.println("Result variance: " + six.variance(city,data));
+        System.out.println("Result mean: " + six.mean(city, data));
+        System.out.println("Result variance: " + six.variance(city, data));
     }
 
     public void task_6_5() {
@@ -156,16 +156,16 @@ public class TaskRunner {
         String toFind = scanner.readString();
         System.out.println("Enter Sheet:");
         String resultSheet = scanner.readString();
-        System.out.println("Result: " + six.nbaCup(resultSheet , toFind));
+        System.out.println("Result: " + six.nbaCup(resultSheet, toFind));
     }
-  
+
     public void task_6_6() {
         System.out.println(Tasks.TASK_6_6.getTaskName());
         System.out.println("Enter List of Articles:");
         String[] lstOfArt = scanner.readString().split(",");
         System.out.println("Enter List of Letters:");
         String[] lstOf1stLetter = scanner.readString().split(",");
-        System.out.println("Result: " + six.stockSummary(lstOfArt , lstOf1stLetter));
+        System.out.println("Result: " + six.stockSummary(lstOfArt, lstOf1stLetter));
     }
 
     public void runTask(int scanner) {

@@ -24,16 +24,16 @@ public class SevenImpl implements Seven {
     public String seriesSum(int n) {
         double dodanok;
         int znam = 1;
-        double sum=0;
-        for(int i=0; i<n-1; i++){
-            znam = znam+3;
+        double sum = 0;
+        for (int i = 0; i < n - 1; i++) {
+            znam = znam + 3;
             System.out.println(znam);
-            dodanok =(double)(1)/znam;
+            dodanok = (double) (1) / znam;
             System.out.println(dodanok);
-            sum +=dodanok;
+            sum += dodanok;
         }
 
-        double res = sum+1;
+        double res = sum + 1;
         String result = String.format("%.2f", res);
 
         return result;

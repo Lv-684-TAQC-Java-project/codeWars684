@@ -31,7 +31,7 @@ public class Menu {
                         System.out.println(String.format("%s - %s", user.getId(), user.getFullName()));
                     }
                     int user_id = scanner.readInt();
-                    if (user_id < 1 || user_id >8) {
+                    if (user_id < 1 || user_id > 8) {
                         System.out.println("No such user, try again\n");
                         break;
                     }

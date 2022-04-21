@@ -10,10 +10,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.NoSuchElementException;
-import java.io.*;
 
-
-import static org.testng.Assert.*;
+import static org.testng.Assert.fail;
 
 public class ConsoleScannerTest {
 
@@ -55,18 +53,19 @@ public class ConsoleScannerTest {
 
     @DataProvider(name = "ReadString")
     public Object[][] ReadString() {
-        Object [][] data = new Object[][]{
+        Object[][] data = new Object[][]{
 
                 {"Sea is worm!", "Sea is worm!"},
                 {"The temperature is 25C", "The temperature is 25C"},
-                {"Список: 1. Фіолетовий, 2. Синій","Список: 1. Фіолетовий, 2. Синій"},
+                {"Список: 1. Фіолетовий, 2. Синій", "Список: 1. Фіолетовий, 2. Синій"},
                 {"Ми - Українці!", "Ми - Українці!"},
 
         };
         return (data);
     }
+
     @Test(dataProvider = "ReadString", groups = {"A"})
-    public void testReadString( String input, String rez) {
+    public void testReadString(String input, String rez) {
 
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         ConsoleScanner cs = new ConsoleScanner();
@@ -109,7 +108,7 @@ public class ConsoleScannerTest {
         ConsoleScanner cs = new ConsoleScanner();
         OutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
-        double[] excepted = new double[]{5.35 ,6.21 ,0.123 ,0.00001, 6.234};
+        double[] excepted = new double[]{5.35, 6.21, 0.123, 0.00001, 6.234};
         double[] actual = cs.readDoubleArray();
         Assert.assertEquals(actual, excepted);
     }

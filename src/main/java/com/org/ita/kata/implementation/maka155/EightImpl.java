@@ -24,7 +24,7 @@ public class EightImpl implements Eight {
         float littersInGallons = 4.54609188f;
         float kilometersInMiles = 1.609344f;
 
-        if(mpg < 0){
+        if (mpg < 0) {
             return -1;
         }
 

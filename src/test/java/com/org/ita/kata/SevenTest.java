@@ -9,6 +9,7 @@ public class SevenTest extends DataProviderUserImpl {
     @Test
     public void testNewAvg() {
     }
+
     @DataProvider(name = "SeriesSumDP")
     public Object[][] seriesSumCombineDP() {
         Object[][] data = new Object[][]{

@@ -12,8 +12,7 @@ public class SevenImpl implements Seven {
         long result = (long) Math.ceil(navg * (arr.length + 1) - sum);
         if (result <= 0) {
             throw new IllegalArgumentException();
-        }
-        else {
+        } else {
             return result;
         }
     }

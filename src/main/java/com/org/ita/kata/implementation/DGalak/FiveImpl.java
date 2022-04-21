@@ -10,16 +10,6 @@ import java.util.stream.LongStream;
 public class FiveImpl implements Five {
     private static final String leftDirection = "left";
     private static final String rightDirection = "right";
-    @Override
-      public int artificialRain(int[] v) {
-        int[] dataForRight = combineDataDirection(rightDirection, v);
-        int[] dataForLeft = combineDataDirection(leftDirection, v);
-        int sectionsCounter = 0;
-        for (int i = 0; i < dataForRight.length; i++) {
-            sectionsCounter = Math.max(1 + dataForRight[i] + dataForLeft[i], sectionsCounter);
-        }
-        return sectionsCounter;
-    }
 
     static boolean canWaterFlowDirections(String direction, int[] numbers, int i) {
         boolean canFlow = false;
@@ -27,15 +17,15 @@ public class FiveImpl implements Five {
             if (numbers.length - 1 == i)
                 return false;
             canFlow = numbers[i + 1] <= numbers[i];
-        }
-        else if (direction.equals(leftDirection)) {
+        } else if (direction.equals(leftDirection)) {
             if (i == 0)
                 return false;
             canFlow = numbers[i - 1] <= numbers[i];
         }
         return canFlow;
     }
-    static int[] combineDataDirection(String direction,int[] numbers) {
+
+    static int[] combineDataDirection(String direction, int[] numbers) {
         int[] dataDirection = new int[numbers.length];
         if (direction.equals(leftDirection)) {
             for (int i = 0; i < numbers.length; i++) {
@@ -45,8 +35,7 @@ public class FiveImpl implements Five {
                     dataDirection[i] = 0;
                 }
             }
-        }
-        else if (direction.equals(rightDirection)) {
+        } else if (direction.equals(rightDirection)) {
             for (int i = numbers.length - 1; i >= 0; i--) {
                 if (canWaterFlowDirections(rightDirection, numbers, i)) {
                     dataDirection[i] = dataDirection[i + 1] + 1;
@@ -56,6 +45,32 @@ public class FiveImpl implements Five {
             }
         }
         return dataDirection;
+    }
+
+    public static boolean isNumberPrime(long number) {
+        if (number < 2 || number % 2 == 0) {
+            return false;
+        }
+        if (number == 2) {
+            return true;
+        }
+        for (int i = 3; i < number; i += 2) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public int artificialRain(int[] v) {
+        int[] dataForRight = combineDataDirection(rightDirection, v);
+        int[] dataForLeft = combineDataDirection(leftDirection, v);
+        int sectionsCounter = 0;
+        for (int i = 0; i < dataForRight.length; i++) {
+            sectionsCounter = Math.max(1 + dataForRight[i] + dataForLeft[i], sectionsCounter);
+        }
+        return sectionsCounter;
     }
 
     @Override
@@ -75,20 +90,6 @@ public class FiveImpl implements Five {
             }
         }
         return null;
-    }
-    public static boolean isNumberPrime(long number) {
-        if (number < 2 || number % 2 == 0) {
-            return false;
-        }
-        if (number == 2) {
-            return true;
-        }
-        for (int i = 3; i < number; i += 2) {
-            if (number % i == 0) {
-                return false;
-            }
-        }
-        return true;
     }
 
     @Override

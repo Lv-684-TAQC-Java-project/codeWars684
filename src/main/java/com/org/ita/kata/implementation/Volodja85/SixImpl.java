@@ -6,6 +6,47 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SixImpl implements Six {
+    private static String[] transToTeamsOne(String s) {
+        String nameOneTeam = "";
+        String pointOneTeam = null;
+        String nameTwoTeam = "";
+        String pointTwoTeam = null;
+        int count = -1;
+        String[] strs = s.split(" ");
+        for (int i = 0; i < strs.length; i++) {
+
+            if (strs[i].matches("[A-Za-z0-9.]+")) {
+                nameOneTeam = nameOneTeam + " " + (strs[i]);
+
+                count = i;
+            }
+            if (strs[i].matches("[0-9.]+")) {
+                pointOneTeam = strs[i];
+
+                count++;
+                break;
+            }
+
+        }
+
+        for (int i = count; i < strs.length; i++) {
+            if (strs[i].matches("[A-Za-z0-9.]+")) {
+                nameTwoTeam = nameTwoTeam + " " + (strs[i]);
+                count++;
+
+            }
+            if (strs[i].matches("[0-9.]+")) {
+                pointTwoTeam = strs[i];
+
+                break;
+            }
+        }
+
+        return new String[]{nameOneTeam.replace(pointOneTeam, "").trim(), pointOneTeam.trim(),
+                nameTwoTeam.replace(pointTwoTeam, "").trim(), pointTwoTeam.trim()};
+
+    }
+
     @Override
     public long findNb(long m) {
 
@@ -124,56 +165,16 @@ public class SixImpl implements Six {
         return -1;
     }
 
-    private static String[] transToTeamsOne(String s) {
-        String nameOneTeam = "";
-        String pointOneTeam =null;
-        String nameTwoTeam = "";
-        String pointTwoTeam =null;
-        int count=-1;
-        String[] strs = s.split(" ");
-        for (int i = 0; i < strs.length; i++) {
-
-            if (strs[i].matches("[A-Za-z0-9.]+")) {
-                nameOneTeam=nameOneTeam+" "+(strs[i]);
-
-                count=i;}
-            if(strs[i].matches("[0-9.]+")){
-                pointOneTeam=strs[i];
-
-                count++;
-                break;
-            }
-
-        }
-
-        for (int i = count; i < strs.length; i++) {
-            if (strs[i].matches("[A-Za-z0-9.]+")) {
-                nameTwoTeam=nameTwoTeam+" "+(strs[i]);
-                count++;
-
-            }
-            if(strs[i].matches("[0-9.]+")){
-                pointTwoTeam=strs[i];
-
-                break;
-            }
-        }
-
-        return new String[]{nameOneTeam.replace(pointOneTeam,"").trim(), pointOneTeam.trim(),
-                nameTwoTeam.replace(pointTwoTeam,"").trim(), pointTwoTeam.trim()};
-
-    }
-
     @Override
     public String nbaCup(String resultSheet, String toFind) {
 
-        if(toFind.equals(""))
+        if (toFind.equals(""))
             return "";
-        if ( toFind.trim().length() == 0) {
+        if (toFind.trim().length() == 0) {
             return "";
         }
         int win = 0, draw = 0, loss = 0, score = 0, conceded = 0, points = 0, find = 0;
-        double p1,p2;
+        double p1, p2;
         String[] games = resultSheet.split(",");
 
         for (int i = 0; i < games.length; i++) {
@@ -186,7 +187,7 @@ public class SixImpl implements Six {
             p2 = Double.parseDouble(map[3]);
 
             if (p1 % 1 != 0 || p2 % 1 != 0) {
-                return "Error(float number):"+ games[i];
+                return "Error(float number):" + games[i];
             }
             if (map[0].equals(toFind)) {
 
@@ -194,26 +195,25 @@ public class SixImpl implements Six {
                 score += p1;
                 conceded += p2;
                 if (p1 > p2) {
-                    win ++;
+                    win++;
                     points += 3;
                 } else if (p1 == p2) {
-                    draw ++;
+                    draw++;
                     points += 1;
                 } else {
-                    loss ++;
+                    loss++;
                 }
-            }
-            else if (map[2].equals(toFind)){
+            } else if (map[2].equals(toFind)) {
                 find++;
                 score += p2;
                 conceded += p1;
                 if (p1 > p2) {
-                    loss ++;
+                    loss++;
                 } else if (p1 == p2) {
-                    draw ++;
+                    draw++;
                     points += 1;
                 } else {
-                    win ++;
+                    win++;
                     points += 3;
                 }
             }

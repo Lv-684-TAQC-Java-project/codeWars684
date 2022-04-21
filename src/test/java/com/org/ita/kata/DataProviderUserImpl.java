@@ -54,7 +54,7 @@ public class DataProviderUserImpl {
                 {new com.org.ita.kata.implementation.Volodja85.FiveImpl()}
         };
     }
-  
+
     @DataProvider
     public Object[][] implementationsSevenKataDataProvider() {
         return new Object[][]{
