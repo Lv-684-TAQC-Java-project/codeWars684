@@ -29,9 +29,20 @@ public class EightTest extends DataProviderUserImpl {
         Assert.assertEquals(actual, expected);
     }
 
+    @DataProvider(name = "TestMpgToKPM")
+    public Object[][] testMpgToKPMCombineDP() {
+        Object[][] data = new Object[][]{
+                {10f, 3.54f},
+                {20f, 7.08f},
+                {30f, 10.62f}
+        };
+        return combine(implementationsEightKataDataProvider(), data);
+    }
 
-    @Test
-    public void testMpgToKPM() {
+    @Test(dataProvider = "TestMpgToKPM")
+    public void testMpgToKPM(Eight impl, float mpg, float expected) {
+        float actual = impl.mpgToKPM(mpg);
+        Assert.assertEquals(actual, expected);
     }
 
     @Test
@@ -79,7 +90,25 @@ public class EightTest extends DataProviderUserImpl {
     public void testTwoDecimalPlaces() {
     }
 
-    @Test
-    public void testDivisibleBy() {
+    @DataProvider(name = "VolumeOfDivisibleByDP")
+    public Object[][] VolumeOfDivisibleByCombineDP() {
+        int[]a={1,2,3,4,5,6};
+        int[]b={1,2,3,4,5,6};
+        int[]c={0,1,2,3,4,5,6};
+        int[]expected={2,4,6};
+        int[]expected2={3,6};
+        int[]expected3={0,4};
+        Object[][] data = new Object[][]{
+                {a,2,expected},
+                {b,3,expected2},
+                {c,4,expected3}
+        };
+        return combine(implementationsEightKataDataProvider(), data);
+    }
+
+    @Test(dataProvider = "VolumeOfDivisibleByDP")
+    public void testDivisibleBy(Eight impl, int[] numbers, int divider, int[] expected) {
+        Assert.assertEquals(impl.divisibleBy( numbers, divider),expected);
+
     }
 }
