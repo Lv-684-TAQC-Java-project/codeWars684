@@ -3,7 +3,7 @@ package com.org.ita.kata;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
+import static org.testng.AssertJUnit.assertEquals;
 import java.util.Random;
 
 public class EightTest extends DataProviderUserImpl {
@@ -78,8 +78,20 @@ public class EightTest extends DataProviderUserImpl {
         Assert.assertEquals(actual, expected);
     }
 
-    @Test
-    public void testStringToNumber() {
+
+    @DataProvider(name = "dpStringToNumber")
+    public Object[][] dpstringToNumber() {
+        Object[][] data = new Object[][]{
+                {"123", 123},
+                {"-123", -123}
+        };
+        return combine(implementationsEightKataDataProvider(), data);
+    }
+
+    @Test(dataProvider = "dpStringToNumber")
+    public void testStringToNumber(Eight impl, String str, int expected) {
+        int actual = impl.stringToNumber(str);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -92,23 +104,23 @@ public class EightTest extends DataProviderUserImpl {
 
     @DataProvider(name = "VolumeOfDivisibleByDP")
     public Object[][] VolumeOfDivisibleByCombineDP() {
-        int[]a={1,2,3,4,5,6};
-        int[]b={1,2,3,4,5,6};
-        int[]c={0,1,2,3,4,5,6};
-        int[]expected={2,4,6};
-        int[]expected2={3,6};
-        int[]expected3={0,4};
+        int[] a = {1, 2, 3, 4, 5, 6};
+        int[] b = {1, 2, 3, 4, 5, 6};
+        int[] c = {0, 1, 2, 3, 4, 5, 6};
+        int[] expected = {2, 4, 6};
+        int[] expected2 = {3, 6};
+        int[] expected3 = {0, 4};
         Object[][] data = new Object[][]{
-                {a,2,expected},
-                {b,3,expected2},
-                {c,4,expected3}
+                {a, 2, expected},
+                {b, 3, expected2},
+                {c, 4, expected3}
         };
         return combine(implementationsEightKataDataProvider(), data);
     }
 
     @Test(dataProvider = "VolumeOfDivisibleByDP")
     public void testDivisibleBy(Eight impl, int[] numbers, int divider, int[] expected) {
-        Assert.assertEquals(impl.divisibleBy( numbers, divider),expected);
+        Assert.assertEquals(impl.divisibleBy(numbers, divider), expected);
 
     }
 }

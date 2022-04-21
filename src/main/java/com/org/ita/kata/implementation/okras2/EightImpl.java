@@ -2,6 +2,8 @@ package com.org.ita.kata.implementation.okras2;
 
 import com.org.ita.kata.Eight;
 
+import java.util.Arrays;
+
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
@@ -54,7 +56,6 @@ public class EightImpl implements Eight {
       System.out.println(Arrays.toString(result));
         return result; //return an array with count of positives and sum of negatives
     }
-}
 
     @Override
     public int stringToNumber(String str) {
