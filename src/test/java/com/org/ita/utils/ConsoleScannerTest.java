@@ -19,18 +19,12 @@ public class ConsoleScannerTest {
         System.setOut(new PrintStream(output));
         int actual1 = cs.readInt();
         int actual2 = cs.readInt();
-
-//
-//        Assert.assertEquals(actual1, 15);
-//        Assert.assertEquals(actual1, 3);
-        System.out.println(output);
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(actual1, 15, "bfjdhbgdj");
         softAssert.assertEquals(actual1, 15, "bjkhbdskjgvbsdkjbvsfk");
         softAssert.assertEquals(actual2, 3, "3True");
         softAssert.assertEquals(actual2, 3, "3False");
         softAssert.assertAll();
-
 
 
     }
@@ -71,25 +65,22 @@ public class ConsoleScannerTest {
         ConsoleScanner cs = new ConsoleScanner();
         OutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
-        System.out.println(output);
         double[] excepted = new double[]{5.35 ,6.21 ,0.123 ,0.00001, 6.234};
-        double [] actual = cs.readDoubleArray();
-         Assert.assertEquals(actual,excepted);
-
+        double[] actual = cs.readDoubleArray();
+        Assert.assertEquals(actual, excepted);
     }
 
     @Test
     public void testReadIntArray() {
-        String input = "15";
+        String input = "3 15 14 13";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         ConsoleScanner cs = new ConsoleScanner();
         OutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
-        int actual1 = cs.readInt();
-        int[]actual={actual1,actual1,actual1};
-        int[] expected={15,15,15};
+        int[] actual = cs.readIntArray();
+        int[] expected = {15, 14, 13};
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(actual, expected,"data isn't corect");
+        softAssert.assertEquals(actual, expected, "data isn't corect");
         softAssert.assertAll();
 
     }
