@@ -3,6 +3,9 @@ package com.org.ita.kata.implementation.DGalak;
 import com.org.ita.kata.Five;
 
 import java.math.BigInteger;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.LongStream;
 
 public class FiveImpl implements Five {
     private static final String leftDirection = "left";
@@ -57,7 +60,35 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] gap(int g, long m, long n) {
-        return new long[0];
+
+        long[] firstPrimePair = new long[2];
+        for (long i = m; i < n + 1; i++) {
+            if (isNumberPrime(i) && isNumberPrime(i + g)) {
+                firstPrimePair[0] = i;
+                firstPrimePair[1] = i + g;
+                List<Long> range = LongStream.rangeClosed(firstPrimePair[0] + 1, firstPrimePair[1] - 1)
+                        .boxed().collect(Collectors.toList());
+                if (range.stream().filter(el -> isNumberPrime(el)).findFirst().isPresent()) {
+                    continue;
+                }
+                return firstPrimePair;
+            }
+        }
+        return null;
+    }
+    public static boolean isNumberPrime(long number) {
+        if (number < 2 || number % 2 == 0) {
+            return false;
+        }
+        if (number == 2) {
+            return true;
+        }
+        for (int i = 3; i < number; i += 2) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
