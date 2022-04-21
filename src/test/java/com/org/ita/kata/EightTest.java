@@ -3,8 +3,8 @@ package com.org.ita.kata;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import static org.testng.AssertJUnit.assertEquals;
+import java.util.Random;
 
 public class EightTest extends DataProviderUserImpl {
 
@@ -49,8 +49,33 @@ public class EightTest extends DataProviderUserImpl {
     public void testSquareOrSquareRoot() {
     }
 
-    @Test
-    public void testCountPositivesSumNegatives() {
+    @DataProvider(name = "CountPositivesSumNegativesDP")
+    public Object[][] CountPositivesSumNegativesDP() {
+        Random random = new Random();
+        int[] array = random.ints(15, -525,463).toArray();
+        int count = 0;
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > 0) {
+                count++;
+            } else if (array[i] < 0) {
+                sum += array[i];
+            }
+        }
+
+        int [][][] data = new int [][][]{
+                {{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15}, {10, -65}},
+                {{0, 2, 3, 0, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14}, {8, -50}},
+                {null, { }},
+                {{ }, { }},
+                {array,{count, sum}}
+        };
+        return combine(implementationsEightKataDataProvider(), data);
+    }
+    @Test(dataProvider = "CountPositivesSumNegativesDP", groups = {"B"})
+    public void testCountPositivesSumNegatives(Eight impl, int[] input, int[] expected){
+        int[] actual =impl.countPositivesSumNegatives(input);
+        Assert.assertEquals(actual, expected);
     }
 
 
