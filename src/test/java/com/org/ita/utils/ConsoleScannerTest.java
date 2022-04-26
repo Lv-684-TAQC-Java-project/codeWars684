@@ -5,12 +5,11 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.OutputStream;
-import java.io.PrintStream;
+import java.io.*;
+import java.math.BigInteger;
 import java.util.NoSuchElementException;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.fail;
 
 public class ConsoleScannerTest {
@@ -93,8 +92,24 @@ public class ConsoleScannerTest {
         fail("This method was failed");
     }
 
-    @Test
-    public void testReadBigInteger() {
+    @DataProvider(name = "dpReadValidBigInteger")
+    public Object[][] readValidBigInteger() {
+        return new Object[][]{
+                {"444", new BigInteger("444")},
+                {"1234589585", new BigInteger("1234589585")},
+                {"9223372036854775807", new BigInteger("9223372036854775807")},
+                {"-9223372036854775807", new BigInteger("-9223372036854775807")}
+        };
+    }
+
+    @Test(dataProvider = "dpReadValidBigInteger")
+    public void testReadBigInteger(String input, BigInteger expected) {
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+
+        var consoleScanner = new ConsoleScanner();
+        BigInteger actual = consoleScanner.readBigInteger();
+        assertEquals(actual, expected);
     }
 
     @Test
@@ -139,7 +154,7 @@ public class ConsoleScannerTest {
         String[] expected = new String[4];
         expected[0] = " Ivan Anna Ira Roma";
         System.out.println(output);
-        Assert.assertEquals(actual,expected,"Arrays are not equal");
+        Assert.assertEquals(actual, expected, "Arrays are not equal");
     }
 
     @Test
