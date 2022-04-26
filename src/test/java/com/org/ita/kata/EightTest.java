@@ -42,6 +42,7 @@ public class EightTest extends DataProviderUserImpl {
     }
 
     @Test(dataProvider = "TestMpgToKPM")
+
     public void testMpgToKPM(Eight impl, float mpg, float expected) {
         float actual = impl.mpgToKPM(mpg);
         Assert.assertEquals(actual, expected);
@@ -97,8 +98,20 @@ public class EightTest extends DataProviderUserImpl {
         assertEquals(expected, actual);
     }
 
-    @Test
-    public void testAmIWilson() {
+    @DataProvider(name = "dpAmIWilson")
+    public Object[][] dpAmIWilson() {
+        Object[][] data = new Object[][]{
+                {0, false},
+                {1, false},
+                {5, true}
+        };
+        return combine(implementationsEightKataDataProvider(), data);
+    }
+
+    @Test(dataProvider = "dpAmIWilson")
+    public void testAmIWilson(Eight impl, double n, boolean expected) {
+        boolean actual = impl.amIWilson(n);
+        assertEquals(expected, actual);
     }
 
     @Test
