@@ -31,7 +31,7 @@ public class SixImpl implements Six {
     @Override
     public String balance(String book) {
         String[] bookMass = book
-                .replaceAll("[^a-zA-Z0-9 .\n]", "")
+                .replaceAll("[^a-zA-Z0-9 .\\s]", "")
                 .split("\n");
         int numberOfPurchase = bookMass.length - 1;
 
