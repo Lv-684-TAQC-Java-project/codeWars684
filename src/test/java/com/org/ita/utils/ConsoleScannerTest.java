@@ -130,6 +130,16 @@ public class ConsoleScannerTest {
 
     @Test
     public void testReadStringArray() {
+        String input = "4 Ivan Anna Ira Roma";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        ConsoleScanner cs = new ConsoleScanner();
+        OutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        String[] actual = cs.readStringArray();
+        String[] expected = new String[4];
+        expected[0] = " Ivan Anna Ira Roma";
+        System.out.println(output);
+        Assert.assertEquals(actual,expected,"Arrays are not equal");
     }
 
     @Test
