@@ -3,7 +3,7 @@ package com.org.ita.kata.implementation.AnastasiaLahuza;
 import com.org.ita.kata.Eight;
 import com.org.ita.kata.implementation.Base;
 
-public class EightImpl  extends Base implements Eight {
+public class EightImpl extends Base implements Eight {
     @Override
     public int liters(double time) {
         return 0;
@@ -55,7 +55,13 @@ public class EightImpl  extends Base implements Eight {
 
     @Override
     public int stringToNumber(String str) {
-        return Integer.parseInt(str);
+        int a = 0;
+        try {
+            a = Integer.parseInt(str);
+        } catch (NumberFormatException e) {
+            System.out.println("Try enter number");
+        }
+        return a;
     }
 
     @Override

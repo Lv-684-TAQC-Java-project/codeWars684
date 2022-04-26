@@ -4,18 +4,48 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class SixTest extends DataProviderUserImpl{
+public class SixTest extends DataProviderUserImpl {
 
-    @Test
-    public void testFindNb() {
+    @DataProvider(name = "findNb")
+    public Object[][] findNb() {
+        Object[][] data = new Object[][]{
+                {4183059834009L, 2022},
+                {24723578342962L, -1},
+                {135440716410000L, 4824},
+                {40539911473216L, 3568},
+                {108806345136785L, -1},
+                {41364076483082L, -1},
+                {9541025211025L, 2485},
+                {16, -1}
+        };
+        return combine(implementationsSixKataDataProvider(), data);
+    }
+
+    @Test(dataProvider = "findNb")
+    public void testFindNb(Six impl, long input, long expected) {
+        long actual = impl.findNb(input);
+        Assert.assertEquals(actual, expected);
     }
 
     @Test
     public void testBalance() {
     }
 
-    @Test
-    public void testF() {
+    @DataProvider(name = "dpApproxFloat")
+    public Object[][] dpApproxFloat() {
+        Object[][] data = new Object[][]{
+                {2.6e-08, 1.29999999155e-08},
+                {1.4e-09, 6.999999997549999e-10},
+                {5.0e-06, 2.499996875007812e-06},
+                {2.4e-07, 1.1999999280000085e-07}
+        };
+        return combine(implementationsSixKataDataProvider(), data);
+    }
+
+    @Test(dataProvider ="dpApproxFloat")
+    public void testF(Six impl, double x , double expected) {
+        double actual = impl.f(x);
+        Assert.assertEquals(actual, expected);
     }
 
     @Test
@@ -60,10 +90,10 @@ public class SixTest extends DataProviderUserImpl{
         String resultSheet3 = resultSheet1 + resultSheet2;
         String resultSheet4 = resultSheet0 + resultSheet2;
         Object[][] data = new Object[][]{
-                { resultSheet3, "Boston Celtics", "Boston Celtics:W=4;D=0;L=0;Scored=403;Conceded=350;Points=12"},
-                { resultSheet3, "Boston Celt", "Boston Celt:This team didn't play!"},
-                { resultSheet3, "Philadelphia 76ers", "Philadelphia 76ers:W=0;D=0;L=2;Scored=160;Conceded=193;Points=0"},
-                { resultSheet4, "New York Knicks", "Error(float number):New York Knicks 101.12 Atlanta Hawks 112"},
+                {resultSheet3, "Boston Celtics", "Boston Celtics:W=4;D=0;L=0;Scored=403;Conceded=350;Points=12"},
+                {resultSheet3, "Boston Celt", "Boston Celt:This team didn't play!"},
+                {resultSheet3, "Philadelphia 76ers", "Philadelphia 76ers:W=0;D=0;L=2;Scored=160;Conceded=193;Points=0"},
+                {resultSheet4, "New York Knicks", "Error(float number):New York Knicks 101.12 Atlanta Hawks 112"},
 
 
         };
@@ -71,8 +101,8 @@ public class SixTest extends DataProviderUserImpl{
     }
 
     @Test(dataProvider = "VolumeOfNbaCupDP")
-    public void testNbaCup(Six impl,String resultSheet, String toFind, String expected) {
-        Assert.assertEquals(impl.nbaCup( resultSheet, toFind),expected);
+    public void testNbaCup(Six impl, String resultSheet, String toFind, String expected) {
+        Assert.assertEquals(impl.nbaCup(resultSheet, toFind), expected);
 
     }
 

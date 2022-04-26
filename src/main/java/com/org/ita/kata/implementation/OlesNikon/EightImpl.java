@@ -36,7 +36,7 @@ public class EightImpl implements Eight {
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
         if (input == null || input.length == 0) {
-            return new int[] {};
+            return new int[]{};
         }
         int count = 0;
         int sum = 0;
@@ -45,10 +45,10 @@ public class EightImpl implements Eight {
                 count++;
             }
             if (i < 0) {
-                sum+= i;
+                sum += i;
             }
         }
-        return new int[] {count, sum};
+        return new int[]{count, sum};
     }
 
     @Override
@@ -59,10 +59,7 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        if(n==5 || n==13 || n==563) {
-            return true;
-        }
-        return false;
+        return n == 5 || n == 13 || n == 563;
     }
 
     @Override

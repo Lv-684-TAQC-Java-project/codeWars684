@@ -8,6 +8,32 @@ import java.util.List;
 import java.util.Scanner;
 
 public class SixImpl implements Six {
+    private static double[] getTownTemp(String town, String strng) {
+        String[] lines = strng.split("\n");
+        String resultLine = null;
+        for (String line : lines) {
+            if (line.startsWith(String.format("%s:", town))) {
+                resultLine = line;
+                break;
+            }
+        }
+
+        List<Double> temps = new ArrayList<>();
+        if (resultLine != null) {
+            resultLine = resultLine.replace(',', ' ');
+            Scanner scanner = new Scanner(resultLine);
+            while (scanner.hasNext()) {
+                if (scanner.hasNextDouble()) {
+                    temps.add(scanner.nextDouble());
+                } else {
+                    scanner.next();
+                }
+            }
+        }
+        double[] resultArray = temps.stream().mapToDouble(Double::doubleValue).toArray();
+        return resultArray;
+    }
+
     @Override
     public long findNb(long m) {
         // your code
@@ -60,7 +86,7 @@ public class SixImpl implements Six {
             return -1d;
         }
         return Arrays.stream(townTemp).average().getAsDouble();
-     }
+    }
 
     @Override
     public double variance(String town, String strng) {
@@ -77,53 +103,6 @@ public class SixImpl implements Six {
                 .sum() / townTemp.length;
         return variance;
     }
-
-    private static double[] getTownTemp(String town, String strng) {
-        String[] lines = strng.split("\n");
-        String resultLine = null;
-        for (String line : lines) {
-            if (line.startsWith(String.format("%s:", town))) {
-                resultLine = line;
-                break;
-            }
-        }
-
-        List<Double> temps = new ArrayList<>();
-        if (resultLine != null) {
-            resultLine = resultLine.replace(',', ' ');
-            Scanner scanner = new Scanner(resultLine);
-            while (scanner.hasNext()) {
-                if (scanner.hasNextDouble()) {
-                    temps.add(scanner.nextDouble());
-                } else {
-                    scanner.next();
-                }
-            }
-        }
-        double[] resultArray= temps.stream().mapToDouble(Double::doubleValue).toArray();
-        return resultArray;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     @Override
     public String nbaCup(String resultSheet, String toFind) {

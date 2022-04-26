@@ -92,7 +92,7 @@ public class FiveImpl implements Five {
         BigInteger c = BigInteger.ONE;
         BigInteger sum = BigInteger.ZERO;
 
-        for(int i = 0; i <= n.intValue(); i++) {
+        for (int i = 0; i <= n.intValue(); i++) {
             a = b;
             b = c;
             c = a.add(b);
@@ -105,7 +105,7 @@ public class FiveImpl implements Five {
     @Override
     public double solveSum(double m) {
 
-        return(2*m+1-Math.sqrt(4*m+1))/(2*m);
+        return (2 * m + 1 - Math.sqrt(4 * m + 1)) / (2 * m);
     }
 
     @Override
@@ -122,8 +122,8 @@ public class FiveImpl implements Five {
         for (int i = 0; i < numDigits; i++) {
             for (int j = 0; j < numDigits; j++) {
                 if (i == j) continue;
-                String s2 = s.substring(0,i) + s.substring(i+1);
-                s2 = s2.substring(0,j) + s.charAt(i) + s2.substring(j);
+                String s2 = s.substring(0, i) + s.substring(i + 1);
+                s2 = s2.substring(0, j) + s.charAt(i) + s2.substring(j);
                 if (smallest.compareTo(s2) > 0) {
                     smallest = s2;
                     smallesti = i;

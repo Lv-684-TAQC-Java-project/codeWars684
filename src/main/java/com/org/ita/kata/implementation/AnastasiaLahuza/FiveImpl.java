@@ -24,19 +24,6 @@ public class FiveImpl implements Five {
         return Long.valueOf(sb.toString());
     }
 
-    @Override
-    public int artificialRain(int[] v) {
-        int[] flowRight = FiveImpl.computeRightFlow(v);
-        int[] flowLeft = FiveImpl.computeLeftFlow(v);
-
-        int maxWateredPlains = 0;
-
-        for (int i = 0; i < flowLeft.length; i++) {
-            maxWateredPlains = Math.max(flowLeft[i] + flowRight[i] + 1, maxWateredPlains);
-        }
-        return maxWateredPlains;
-    }
-
     static boolean canFlowLeft(int[] numbers, int i) {
         if (i == 0)
             return false;
@@ -48,7 +35,6 @@ public class FiveImpl implements Five {
             return false;
         return numbers[i + 1] <= numbers[i];
     }
-
 
     static int[] computeLeftFlow(int[] numbers) {
         int[] result = new int[numbers.length];
@@ -76,6 +62,18 @@ public class FiveImpl implements Five {
         return result;
     }
 
+    @Override
+    public int artificialRain(int[] v) {
+        int[] flowRight = FiveImpl.computeRightFlow(v);
+        int[] flowLeft = FiveImpl.computeLeftFlow(v);
+
+        int maxWateredPlains = 0;
+
+        for (int i = 0; i < flowLeft.length; i++) {
+            maxWateredPlains = Math.max(flowLeft[i] + flowRight[i] + 1, maxWateredPlains);
+        }
+        return maxWateredPlains;
+    }
 
     @Override
     public long[] gap(int g, long m, long n) {
@@ -97,7 +95,7 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
-        int count=0;
+        int count = 0;
         for (int i = 5; n / i >= 1; i *= 5) {
             count += n / i;
         }

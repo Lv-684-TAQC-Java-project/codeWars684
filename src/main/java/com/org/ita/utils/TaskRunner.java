@@ -133,21 +133,21 @@ public class TaskRunner {
         System.out.println("Result: " + six.balance(text));
     }
 
-   public void task_6_3() {
+    public void task_6_3() {
         System.out.println(Tasks.TASK_6_3.getTaskName());
         System.out.println("Enter number");
         Double number = scanner.readDouble();
         System.out.println("Result: " + six.f(number));
     }
-  
+
     public void task_6_4() {
         System.out.println(Tasks.TASK_6_4.getTaskName());
         System.out.println("Enter City");
         String city = scanner.readString();
         System.out.println("Enter Data");
         String data = scanner.readString();
-        System.out.println("Result mean: " + six.mean(city,data));
-        System.out.println("Result variance: " + six.variance(city,data));
+        System.out.println("Result mean: " + six.mean(city, data));
+        System.out.println("Result variance: " + six.variance(city, data));
     }
 
     public void task_6_5() {
@@ -156,15 +156,90 @@ public class TaskRunner {
         String toFind = scanner.readString();
         System.out.println("Enter Sheet:");
         String resultSheet = scanner.readString();
-        System.out.println("Result: " + six.nbaCup(resultSheet , toFind));
+        System.out.println("Result: " + six.nbaCup(resultSheet, toFind));
     }
-  
+
     public void task_6_6() {
         System.out.println(Tasks.TASK_6_6.getTaskName());
         System.out.println("Enter List of Articles:");
         String[] lstOfArt = scanner.readString().split(",");
         System.out.println("Enter List of Letters:");
         String[] lstOf1stLetter = scanner.readString().split(",");
-        System.out.println("Result: " + six.stockSummary(lstOfArt , lstOf1stLetter));
+        System.out.println("Result: " + six.stockSummary(lstOfArt, lstOf1stLetter));
+    }
+
+    public void runTask(int scanner) {
+        switch (scanner) {
+            case 2:
+                task_8_2();
+//                    break;
+//                case 3:
+//                    task_8_3();
+//                    break;
+//                case 4:
+//                    task_8_4();
+//                    break;
+//                case 5:
+//                    task_8_5();
+            case 6:
+                task_8_6();
+                break;
+            case 7:
+                task_8_7();
+                break;
+            //case 8:
+//                    task_8_8();
+//                    break;
+//                case 9:
+//                    task_8_9();
+//                    break;
+//                case 10:
+//                    task_7_1();
+//                    break;
+//                case 11:
+//                    task_7_2();
+//                    break;
+//                case 12:
+//                    task_7_3();
+//                    break;
+            //           case 13:
+            //               task_6_1();
+            //               break;
+            //           case 14:
+            //               task_6_2();
+//                break;
+//                case 15:
+//                    task_6_3();
+//                    break;
+//                case 16:
+//                    task_6_4();
+//                    break;
+//                case 17:
+//                    task_6_5();
+//                    break;
+//                case 18:
+//                    task_6_6();
+//                    break;
+//                case 19:
+//                    task_5_1();
+//                    break;
+//                case 20:
+//                    task_5_2();
+//                    break;
+//                case 21:
+//                    task_5_3();
+//                    break;
+//                case 22:
+//                    task_5_4();
+//                    break;
+//                case 23:
+//                    task_5_5();
+//                    break;
+//                case 24:
+//                    task_5_6();
+//                    break;
+            default:
+                System.exit(3);
+        }
     }
 }
