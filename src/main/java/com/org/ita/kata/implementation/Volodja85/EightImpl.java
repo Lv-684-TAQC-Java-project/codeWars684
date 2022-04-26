@@ -64,8 +64,12 @@ public class EightImpl implements Eight {
 
     @Override
     public int stringToNumber(String str) {
-
-        return Integer.parseInt(str);
+        try {
+            return Integer.parseInt(str);
+        } catch (NumberFormatException e) {
+            System.out.println("Try enter number");
+        }
+        return 0;
     }
 
     @Override
