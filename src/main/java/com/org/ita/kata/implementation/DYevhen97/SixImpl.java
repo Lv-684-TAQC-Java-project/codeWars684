@@ -52,7 +52,6 @@ public class SixImpl implements Six {
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
         if (lstOfArt.length == 0 || lstOf1stLetter.length == 0) return "";
-
         int sum = 0;
         String res = "";
 
