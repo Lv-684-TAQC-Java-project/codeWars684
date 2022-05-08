@@ -9,6 +9,8 @@
         </groups>
         <classes>
             <class name="com.org.ita.kata.EightTest"/>
+            <class name="com.org.ita.kata.SixTest"/>
+            <class name="com.org.ita.kata.FiveTest"/>
         </classes>
     </test>
 </suite>

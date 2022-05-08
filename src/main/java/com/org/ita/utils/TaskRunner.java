@@ -187,39 +187,39 @@ public class TaskRunner {
             case 7:
                 task_8_7();
                 break;
-            //case 8:
-//                    task_8_8();
-//                    break;
-//                case 9:
-//                    task_8_9();
-//                    break;
-//                case 10:
-//                    task_7_1();
-//                    break;
-//                case 11:
-//                    task_7_2();
-//                    break;
+            case 8:
+                   task_8_8();
+                   break;
+               case 9:
+                    task_8_9();
+                    break;
+                case 10:
+                    task_7_1();
+                    break;
+                case 11:
+                    task_7_2();
+                    break;
 //                case 12:
 //                    task_7_3();
 //                    break;
-            //           case 13:
-            //               task_6_1();
-            //               break;
-            //           case 14:
-            //               task_6_2();
-//                break;
-//                case 15:
-//                    task_6_3();
-//                    break;
-//                case 16:
-//                    task_6_4();
-//                    break;
-//                case 17:
-//                    task_6_5();
-//                    break;
-//                case 18:
-//                    task_6_6();
-//                    break;
+                      case 13:
+                          task_6_1();
+                          break;
+                       case 14:
+                           task_6_2();
+                break;
+                case 15:
+                    task_6_3();
+                    break;
+                case 16:
+                   task_6_4();
+                    break;
+                case 17:
+                    task_6_5();
+                    break;
+                case 18:
+                    task_6_6();
+                    break;
 //                case 19:
 //                    task_5_1();
 //                    break;
