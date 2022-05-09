@@ -80,6 +80,26 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] smallest(long n) {
-        return new long[0];
+        assert n >= 0;
+        String s = "" + n;
+        final int numDigits = s.length();
+
+        String smallest = s;
+        long smallesti = 0;
+        long smallestj = 0;
+
+        for (int i = 0; i < numDigits; i++) {
+            for (int j = 0; j < numDigits; j++) {
+                if (i == j) continue;
+                String s2 = s.substring(0,i) + s.substring(i+1);
+                s2 = s2.substring(0,j) + s.charAt(i) + s2.substring(j);
+                if (smallest.compareTo(s2) > 0) {
+                    smallest = s2;
+                    smallesti = i;
+                    smallestj = j;
+                }
+            }
+        }
+        return new long[]{Long.parseLong(smallest), smallesti, smallestj};
     }
 }
