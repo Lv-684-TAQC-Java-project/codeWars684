@@ -181,6 +181,24 @@ public class TaskRunner {
         System.out.println("Result: " + five.artificialRain(numbers));
 
     }
+    public void task_5_2() {
+        System.out.println(Tasks.TASK_5_2.getTaskName());
+        System.out.println("Enter gap:");
+        int g = scanner.readInt();
+        System.out.println("Enter gap:");
+        long m = scanner.readLong();
+        System.out.println("Enter gap:");
+        long n = scanner.readLong();
+        System.out.println("Result: " + eight.getVolumeOfCuboid(g, m, n));
+
+    }
+    public void task_5_3() {
+        System.out.println(Tasks.TASK_5_3.getTaskName());
+        System.out.println("Enter number:");
+        int number = scanner.readInt();
+        System.out.println("Result: " + five.zeros(number));
+
+    }
 
     public void runTask(int scanner) {
         switch (scanner) {
@@ -237,12 +255,12 @@ public class TaskRunner {
                 case 19:
                     task_5_1();
                     break;
-//                case 20:
-//                    task_5_2();
-//                    break;
-//                case 21:
-//                    task_5_3();
-//                    break;
+                case 20:
+                    task_5_2();
+                    break;
+                case 21:
+                    task_5_3();
+                    break;
 //                case 22:
 //                    task_5_4();
 //                    break;
