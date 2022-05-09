@@ -145,6 +145,17 @@ public class TaskRunner {
         System.out.println("Result: " + seven.seriesSum(n));
     }
 
+    public void task_7_3() {
+        System.out.println(Tasks.TASK_7_3.getTaskName());
+        System.out.println("Enter number of total amount of people in the line:");
+        int n = scanner.readInt();
+        System.out.println("Enter number of people before:");
+        int m = scanner.readInt();
+        System.out.println("Enter number of people after:");
+        int k = scanner.readInt();
+        System.out.println("Result: " + seven.whereIsHe(n, m, k));
+    }
+
     public void task_6_1() {
         System.out.println(Tasks.TASK_6_1.getTaskName());
         System.out.println("Enter integer value");
@@ -258,9 +269,9 @@ public class TaskRunner {
                 case 11:
                     task_7_2();
                     break;
-//                case 12:
-//                    task_7_3();
-//                    break;
+                case 12:
+                    task_7_3();
+                    break;
                       case 13:
                           task_6_1();
                           break;
