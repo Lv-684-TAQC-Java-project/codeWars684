@@ -4,6 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertEquals;
+
 public class SixTest extends DataProviderUserImpl {
 
     @DataProvider(name = "findNb")
@@ -21,14 +23,22 @@ public class SixTest extends DataProviderUserImpl {
         return combine(implementationsSixKataDataProvider(), data);
     }
 
-    @Test(dataProvider = "findNb")
+    @Test(dataProvider = "findNb", groups = {"B"})
     public void testFindNb(Six impl, long input, long expected) {
         long actual = impl.findNb(input);
         Assert.assertEquals(actual, expected);
     }
 
-    @Test
-    public void testBalance() {
+    @DataProvider(name = "dpBalance")
+    public Object[][] dpBalance() {
+        Object[][] param = new Object[][]{
+                {"b1", "b1sol"}, {"b2", "b2sol"}};
+        return combine(implementationsSixKataDataProvider(), param);
+    }
+
+    @Test(dataProvider = "dpBalance")
+    public void testBalance(Six impl, String input, String result) {
+        assertEquals(impl.balance(input), result);
     }
 
     @DataProvider(name = "dpApproxFloat")
@@ -42,8 +52,8 @@ public class SixTest extends DataProviderUserImpl {
         return combine(implementationsSixKataDataProvider(), data);
     }
 
-    @Test(dataProvider ="dpApproxFloat")
-    public void testF(Six impl, double x , double expected) {
+    @Test(dataProvider = "dpApproxFloat")
+    public void testF(Six impl, double x, double expected) {
         double actual = impl.f(x);
         Assert.assertEquals(actual, expected);
     }
