@@ -5,12 +5,11 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.OutputStream;
-import java.io.PrintStream;
+import java.io.*;
+import java.math.BigDecimal;
 import java.util.NoSuchElementException;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.fail;
 
 public class ConsoleScannerTest {
@@ -40,7 +39,7 @@ public class ConsoleScannerTest {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         ConsoleScanner cs = new ConsoleScanner();
         long actual = cs.readLong();
-        Assert.assertEquals(actual, 15);
+        assertEquals(actual, 15);
     }
 
     @Test
@@ -89,7 +88,7 @@ public class ConsoleScannerTest {
         OutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
         String actual1 = cs.readString();
-        Assert.assertEquals(actual1, "Value is not incorrect, please try again.");
+        assertEquals(actual1, "Value is not incorrect, please try again.");
         fail("This method was failed");
     }
 
@@ -97,8 +96,23 @@ public class ConsoleScannerTest {
     public void testReadBigInteger() {
     }
 
-    @Test
-    public void testReadBigDecimal() {
+    @DataProvider(name = "dpReadBigDecimal")
+    public Object[][] readBigDecimal() {
+        return new Object[][]{
+                {"2,6E-08", new BigDecimal( "2.6e-08")},
+                {"1,4E-09", new BigDecimal("1.4e-09")},
+                {"2,4E-07", new BigDecimal("2.4e-07")},
+        };
+    }
+
+    @Test(dataProvider = "dpReadBigDecimal")
+    public void testReadBigDecimal(String input, BigDecimal expected) {
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+
+        ConsoleScanner cs = new ConsoleScanner();
+        BigDecimal actual =  cs.readBigDecimal();
+        assertEquals(actual, expected);
     }
 
     @Test
@@ -110,7 +124,7 @@ public class ConsoleScannerTest {
         System.setOut(new PrintStream(output));
         double[] excepted = new double[]{5.35, 6.21, 0.123, 0.00001, 6.234};
         double[] actual = cs.readDoubleArray();
-        Assert.assertEquals(actual, excepted);
+        assertEquals(actual, excepted);
     }
 
     @Test
@@ -139,7 +153,7 @@ public class ConsoleScannerTest {
         String[] expected = new String[4];
         expected[0] = " Ivan Anna Ira Roma";
         System.out.println(output);
-        Assert.assertEquals(actual,expected,"Arrays are not equal");
+        assertEquals(actual,expected,"Arrays are not equal");
     }
 
     @Test
