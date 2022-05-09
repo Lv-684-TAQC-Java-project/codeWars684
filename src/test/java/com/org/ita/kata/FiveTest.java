@@ -61,7 +61,7 @@ public class FiveTest extends DataProviderUserImpl {
         return combine(implementationsFiveKataDataProvider(), data);
     }
 
-    @Test(dataProvider = "Zeros")
+    @Test(dataProvider = "Zeros", groups = {"B"})
     public void testZeros(Five impl, int n, int expected) {
         double actual = impl.zeros(n);
         Assert.assertEquals(actual, expected);

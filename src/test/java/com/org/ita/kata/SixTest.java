@@ -23,7 +23,7 @@ public class SixTest extends DataProviderUserImpl {
         return combine(implementationsSixKataDataProvider(), data);
     }
 
-    @Test(dataProvider = "findNb")
+    @Test(dataProvider = "findNb", groups = {"B"})
     public void testFindNb(Six impl, long input, long expected) {
         long actual = impl.findNb(input);
         Assert.assertEquals(actual, expected);
