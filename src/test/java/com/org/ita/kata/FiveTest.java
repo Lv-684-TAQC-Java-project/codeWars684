@@ -67,8 +67,19 @@ public class FiveTest extends DataProviderUserImpl {
         Assert.assertEquals(actual, expected);
     }
 
-    @Test
-    public void testPerimeter() {
+    @DataProvider(name = "perimeter")
+    public Object[][] Perimeter() {
+        Object[][] data = new Object[][]{
+                {new BigInteger(String.valueOf(5)), new BigInteger(String.valueOf(80))},
+                {new BigInteger(String.valueOf(7)), new BigInteger(String.valueOf(216))},
+                {new BigInteger(String.valueOf(30)), new BigInteger(String.valueOf(14098308))},
+
+        };
+        return combine(implementationsFiveKataDataProvider(), data);
+    }
+    @Test(dataProvider = "perimeter")
+    public void testPerimeter(Five impl,BigInteger b,BigInteger expected) {
+        Assert.assertEquals(impl.perimeter(b), expected);
     }
 
     @DataProvider(name = "dpSolveSum")
