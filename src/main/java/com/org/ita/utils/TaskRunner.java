@@ -89,14 +89,14 @@ public class TaskRunner {
     public void task_8_4() {
         System.out.println(Tasks.TASK_8_4.getTaskName());
         System.out.println("Enter list of integer numbers:");
-        int [] arr = scanner.readIntArray();
+        int[] arr = scanner.readIntArray();
         System.out.println("Result: " + Arrays.toString(eight.squareOrSquareRoot(arr)));
     }
 
     public void task_8_5() {
         System.out.println(Tasks.TASK_8_5.getTaskName());
         System.out.println("Enter list of integer numbers:");
-        int [] arr = scanner.readIntArray();
+        int[] arr = scanner.readIntArray();
         System.out.println("Result: " + Arrays.toString(eight.countPositivesSumNegatives(arr)));
     }
 
@@ -258,11 +258,11 @@ public class TaskRunner {
             case 3:
                 task_8_3();
                 break;
-                case 4:
-                    task_8_4();
-                    break;
-                case 5:
-                    task_8_5();
+            case 4:
+                task_8_4();
+                break;
+            case 5:
+                task_8_5();
             case 6:
                 task_8_6();
                 break;
@@ -281,9 +281,9 @@ public class TaskRunner {
             case 11:
                 task_7_2();
                 break;
-//                case 12:
-//                    task_7_3();
-//                    break;
+            case 12:
+                task_7_3();
+                break;
             case 13:
                 task_6_1();
                 break;
@@ -314,9 +314,9 @@ public class TaskRunner {
             case 22:
                 task_5_4();
                 break;
-//                case 23:
-//                    task_5_5();
-//                    break;
+            case 23:
+               // task_5_5();
+                break;
             case 24:
                 task_5_6();
                 break;
