@@ -72,6 +72,12 @@ public class TaskRunner {
         Double height = scanner.readDouble();
         System.out.println("Result: " + eight.getVolumeOfCuboid(length, width, height));
     }
+    public void task_8_3() {
+        System.out.println(Tasks.TASK_8_3.getTaskName());
+        System.out.println("Miles per gallon:");
+        Float mpg = scanner.readFloat();
+        System.out.println("Result: " + eight.mpgToKPM(mpg));
+    }
 
     public void task_8_6() {
         System.out.println(Tasks.TASK_8_6.getTaskName());
@@ -166,16 +172,42 @@ public class TaskRunner {
         System.out.println("Enter List of Letters:");
         String[] lstOf1stLetter = scanner.readString().split(",");
         System.out.println("Result: " + six.stockSummary(lstOfArt, lstOf1stLetter));
+
+    }
+    public void task_5_1() {
+        System.out.println(Tasks.TASK_5_1.getTaskName());
+        System.out.println("Enter numbers:");
+        int[] numbers = scanner.readIntArray();
+        System.out.println("Result: " + five.artificialRain(numbers));
+
+    }
+    public void task_5_2() {
+        System.out.println(Tasks.TASK_5_2.getTaskName());
+        System.out.println("Enter gap:");
+        int g = scanner.readInt();
+        System.out.println("Enter gap:");
+        long m = scanner.readLong();
+        System.out.println("Enter gap:");
+        long n = scanner.readLong();
+        System.out.println("Result: " + eight.getVolumeOfCuboid(g, m, n));
+
+    }
+    public void task_5_3() {
+        System.out.println(Tasks.TASK_5_3.getTaskName());
+        System.out.println("Enter number:");
+        int number = scanner.readInt();
+        System.out.println("Result: " + five.zeros(number));
+
     }
 
     public void runTask(int scanner) {
         switch (scanner) {
             case 2:
                 task_8_2();
-//                    break;
-//                case 3:
-//                    task_8_3();
-//                    break;
+                    break;
+                case 3:
+                    task_8_3();
+                   break;
 //                case 4:
 //                    task_8_4();
 //                    break;
@@ -220,15 +252,15 @@ public class TaskRunner {
                 case 18:
                     task_6_6();
                     break;
-//                case 19:
-//                    task_5_1();
-//                    break;
-//                case 20:
-//                    task_5_2();
-//                    break;
-//                case 21:
-//                    task_5_3();
-//                    break;
+                case 19:
+                    task_5_1();
+                    break;
+                case 20:
+                    task_5_2();
+                    break;
+                case 21:
+                    task_5_3();
+                    break;
 //                case 22:
 //                    task_5_4();
 //                    break;
