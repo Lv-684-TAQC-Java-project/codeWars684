@@ -5,7 +5,10 @@ import com.org.ita.kata.Five;
 import com.org.ita.kata.Seven;
 import com.org.ita.kata.Six;
 
+
 import java.util.Arrays;
+import java.math.BigInteger;
+
 
 public class TaskRunner {
     private final ConsoleScanner scanner;
@@ -217,6 +220,13 @@ public class TaskRunner {
 
     }
 
+    public void task_5_4() {
+        System.out.println(Tasks.TASK_5_4.getTaskName());
+        System.out.println("Enter the sum of the perimeters of all the squares in a rectangle:");
+        BigInteger parameter = scanner.readBigInteger();
+        System.out.println("Result: " + five.perimeter(parameter));
+    }
+
     public void runTask(int scanner) {
         switch (scanner) {
             case 2:
@@ -278,9 +288,9 @@ public class TaskRunner {
                 case 21:
                     task_5_3();
                     break;
-//                case 22:
-//                    task_5_4();
-//                    break;
+                case 22:
+                    task_5_4();
+                    break;
 //                case 23:
 //                    task_5_5();
 //                    break;
