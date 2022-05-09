@@ -5,6 +5,8 @@ import com.org.ita.kata.Five;
 import com.org.ita.kata.Seven;
 import com.org.ita.kata.Six;
 
+import java.util.Arrays;
+
 public class TaskRunner {
     private final ConsoleScanner scanner;
     private Users user;
@@ -78,6 +80,21 @@ public class TaskRunner {
         Float mpg = scanner.readFloat();
         System.out.println("Result: " + eight.mpgToKPM(mpg));
     }
+
+    public void task_8_4() {
+        System.out.println(Tasks.TASK_8_4.getTaskName());
+        System.out.println("Enter list of integer numbers:");
+        int [] arr = scanner.readIntArray();
+        System.out.println("Result: " + Arrays.toString(eight.squareOrSquareRoot(arr)));
+    }
+
+    public void task_8_5() {
+        System.out.println(Tasks.TASK_8_5.getTaskName());
+        System.out.println("Enter list of integer numbers:");
+        int [] arr = scanner.readIntArray();
+        System.out.println("Result: " + Arrays.toString(eight.countPositivesSumNegatives(arr)));
+    }
+
 
     public void task_8_6() {
         System.out.println(Tasks.TASK_8_6.getTaskName());
@@ -208,11 +225,11 @@ public class TaskRunner {
                 case 3:
                     task_8_3();
                    break;
-//                case 4:
-//                    task_8_4();
-//                    break;
-//                case 5:
-//                    task_8_5();
+                case 4:
+                    task_8_4();
+                    break;
+                case 5:
+                    task_8_5();
             case 6:
                 task_8_6();
                 break;
