@@ -175,5 +175,13 @@ public class ConsoleScannerTest {
 
     @Test
     public void testReadLongArray() {
+        String input = "8 10795 43435 174251 698027 2794155 11180715 44731051 178940587";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        ConsoleScanner cs = new ConsoleScanner();
+        OutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        long[] excepted = new long[]{10795, 43435, 174251, 698027, 2794155, 11180715, 44731051, 178940587};
+        long[] actual = cs.readLongArray();
+        Assert.assertEquals(actual, excepted);
     }
 }
