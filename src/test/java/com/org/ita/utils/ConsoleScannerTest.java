@@ -45,6 +45,11 @@ public class ConsoleScannerTest {
 
     @Test
     public void testReadFloat() {
+        String input = "24 er klm";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        ConsoleScanner cs = new ConsoleScanner();
+        float actual = cs.readFloat();
+        assertEquals(actual, 24);
     }
 
     @Test
