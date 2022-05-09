@@ -6,6 +6,7 @@ import com.org.ita.kata.Seven;
 import com.org.ita.kata.Six;
 
 import java.math.BigInteger;
+import java.util.Arrays;
 
 public class TaskRunner {
     private final ConsoleScanner scanner;
@@ -108,7 +109,7 @@ public class TaskRunner {
         int[] numbers = scanner.readIntArray();
         System.out.println("Enter divider");
         int divider = scanner.readInt();
-        System.out.println("Result: " + eight.divisibleBy(numbers, divider));
+        System.out.println("Result: " + Arrays.toString(eight.divisibleBy(numbers, divider)));
     }
 
     public void task_7_1() {
@@ -207,6 +208,13 @@ public class TaskRunner {
         System.out.println("Enter the sum of the perimeters of all the squares in a rectangle:");
         BigInteger parameter = scanner.readBigInteger();
         System.out.println("Result: " + five.perimeter(parameter));
+    }
+
+    public void task_5_6() {
+        System.out.println(Tasks.TASK_5_6.getTaskName());
+        System.out.println("Enter  positive number :");
+        long parameter = scanner.readLong();
+        System.out.println("Result: " + Arrays.toString(five.smallest(parameter)));
     }
 
     public void runTask(int scanner) {
