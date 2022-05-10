@@ -325,7 +325,8 @@ public class TaskRunner {
                 task_5_6();
                 break;
             default:
-                System.exit(3);
+                System.out.println("No such task, try again\n");
+
         }
     }
 }
