@@ -3,6 +3,7 @@ package com.org.ita.kata;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.util.Random;
 
@@ -114,8 +115,20 @@ public class EightTest extends DataProviderUserImpl {
         assertEquals(expected, actual);
     }
 
-    @Test
-    public void testTwoDecimalPlaces() {
+    @DataProvider(name = "data1")
+    public Object[][] data() {
+        Object[][] data = new Object[][]{
+                {13.1241, 13.12},
+                {1.123123, 1.12},
+                {123123123.12123, 123123123.12}
+        };
+        return combine(implementationsEightKataDataProvider(), data);
+    }
+
+    @Test(dataProvider = "data1")
+    public void testTwoDecimalPlaces(Eight impl, double actual, double expected) {
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(impl.twoDecimalPlaces(actual),expected);
     }
 
     @DataProvider(name = "VolumeOfDivisibleByDP")
