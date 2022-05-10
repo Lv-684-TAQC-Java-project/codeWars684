@@ -246,15 +246,15 @@ public class TaskRunner {
     public void task_5_5() {
         System.out.println(Tasks.TASK_5_5.getTaskName());
         System.out.println("Enter number");
-        BigInteger parameter = scanner.readBigInteger();
-        System.out.println("Result: " + five.perimeter(parameter));
+        double parameter = scanner.readDouble();
+        System.out.println("Result: " + five.solveSum(parameter));
     }
 
     public void task_5_6() {
         System.out.println(Tasks.TASK_5_6.getTaskName());
         System.out.println("Enter  positive number :");
-        double parameter = scanner.readDouble();
-        System.out.println("Result: " + five.solveSum(parameter));
+        long parameter = scanner.readLong();
+        System.out.println("Result: " + five.smallest(parameter));
     }
 
     public void runTask(int scanner) {
