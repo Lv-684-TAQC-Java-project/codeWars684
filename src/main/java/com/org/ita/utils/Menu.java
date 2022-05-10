@@ -50,7 +50,6 @@ public class Menu {
             }
 
         } while (choice != 0);
-        System.out.println("The program is finished!");
         return true;
     }
 
