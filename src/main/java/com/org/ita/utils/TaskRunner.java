@@ -185,7 +185,7 @@ public class TaskRunner {
         String city = scanner.readString();
         System.out.println("Enter Data");
         String data = scanner.readString();
-        System.out.println("Result mean: " + six.mean(city, data));
+        System.out.println("\nResult mean: " + six.mean(city, data));
         System.out.println("Result variance: " + six.variance(city, data));
     }
 
