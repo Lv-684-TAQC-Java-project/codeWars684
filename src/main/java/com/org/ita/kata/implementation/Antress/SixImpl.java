@@ -78,30 +78,31 @@ public class SixImpl implements Six {
 
     @Override
     public double mean(String town, String strng) {
-        if (town == null || strng == null) {
-            return 0d;
-        }
-        double[] townTemp = getTownTemp(town, strng);
-        if (townTemp.length == 0) {
-            return -1d;
-        }
-        return Arrays.stream(townTemp).average().getAsDouble();
+        if(!strng.contains(town + ":")) return -1;
+        double[] data = getData(town, strng);
+        return Arrays.stream(data).average().getAsDouble();
     }
 
     @Override
     public double variance(String town, String strng) {
-        if (town == null || strng == null) {
-            return 0d;
+        if(!strng.contains(town + ":")) return -1;
+        double[] data = getData(town, strng);
+        double avg = Arrays.stream(data).average().getAsDouble();
+        double sum = 0;
+        for (int i = 0; i < data.length; i++) {
+            sum += (data[i] - avg) * (data[i] - avg);
         }
-        double[] townTemp = getTownTemp(town, strng);
-        if (townTemp.length == 0) {
-            return -1d;
-        }
-        double average = Arrays.stream(townTemp).average().getAsDouble();
-        double variance = Arrays.stream(townTemp)
-                .map(p -> (p - average) * (p - average))
-                .sum() / townTemp.length;
-        return variance;
+        return sum / (data.length);
+    }
+
+    private static double[] getData(String town, String strng) {
+        String townSub = strng.substring(strng.indexOf(town));
+        String curDataAndTown = (townSub.contains("\n"))
+                ? townSub.substring(0, townSub.indexOf("\n"))
+                : townSub;
+        String curData = curDataAndTown.replaceFirst(town + ":", "");
+        String[] split = curData.split(",");
+        return Arrays.stream(split).mapToDouble(x -> Double.parseDouble(x.split(" ")[1])).toArray();
     }
 
     @Override
